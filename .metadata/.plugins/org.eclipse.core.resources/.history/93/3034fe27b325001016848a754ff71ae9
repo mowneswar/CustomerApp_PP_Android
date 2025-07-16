@@ -1,0 +1,400 @@
+package ios;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+
+public class customerapplaunch {
+	AppiumDriver<MobileElement> driver = null;
+
+    @BeforeClass
+    public void setUp() throws MalformedURLException, InterruptedException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 16 Pro Max");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "18.3");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+        capabilities.setCapability("bundleId", "com.moniic.customer.pp");
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60000"); 
+
+       
+        driver = new IOSDriver<MobileElement>(new URL("http://192.168.1.6:4723/"), capabilities);
+        System.out.println("Connected to iOS device simulator!");
+        System.out.println("Launched the app on iOS simulator iPhone 16 pro max version 18.3.1");
+        Thread.sleep(15000);
+    }
+
+    
+ 
+    public void testOnLetsGoPage() throws InterruptedException {
+        
+    	MobileElement letsGoBtn = driver.findElementByAccessibilityId("LET'S GO 󰅂");
+    	letsGoBtn.click();
+        Thread.sleep(5000);
+        
+        
+        
+    }
+    
+    
+    public void testOnLetsgetStartedexistAccntPage() throws InterruptedException {
+		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		Sequence tap = new Sequence(finger, 1);
+		tap.addAction(finger.createPointerMove(Duration.ofMillis(0),
+		    PointerInput.Origin.viewport(), 227, 185));
+		tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		tap.addAction(new Pause(finger, Duration.ofMillis(100)));
+		tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Arrays.asList(tap));
+		Thread.sleep(5000);
+	
+		
+    	driver.findElementByAccessibilityId("5").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("2").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("9").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("6").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("6").click();
+    	Thread.sleep(5000);
+    	
+    	
+    	
+    	PointerInput ProceedBtn = new PointerInput(PointerInput.Kind.TOUCH, "ProceedBtn");
+		Sequence tap2 = new Sequence(ProceedBtn, 1);
+		tap2.addAction(ProceedBtn.createPointerMove(Duration.ofMillis(0),
+		    PointerInput.Origin.viewport(), 217, 546));
+		tap2.addAction(ProceedBtn.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		tap2.addAction(new Pause(ProceedBtn, Duration.ofMillis(100)));
+		tap2.addAction(ProceedBtn.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Arrays.asList(tap2));
+		Thread.sleep(5000);
+	}
+    
+    
+    
+    
+    
+    
+    
+    
+/////////////Login and New Registration starts here ////////////
+    public void testOnLetsgetStartedPage() throws InterruptedException {
+		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		Sequence tap = new Sequence(finger, 1);
+		tap.addAction(finger.createPointerMove(Duration.ofMillis(0),
+		    PointerInput.Origin.viewport(), 227, 185));
+		tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		tap.addAction(new Pause(finger, Duration.ofMillis(100)));
+		tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Arrays.asList(tap));
+		Thread.sleep(5000);
+	
+		
+    	driver.findElementByAccessibilityId("5").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("2").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("0").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("9").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("9").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("6").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("6").click();
+    	Thread.sleep(5000);
+    	
+    	
+    	
+    	PointerInput ProceedBtn = new PointerInput(PointerInput.Kind.TOUCH, "ProceedBtn");
+		Sequence tap2 = new Sequence(ProceedBtn, 1);
+		tap2.addAction(ProceedBtn.createPointerMove(Duration.ofMillis(0),
+		    PointerInput.Origin.viewport(), 217, 546));
+		tap2.addAction(ProceedBtn.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		tap2.addAction(new Pause(ProceedBtn, Duration.ofMillis(100)));
+		tap2.addAction(ProceedBtn.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Arrays.asList(tap2));
+		Thread.sleep(5000);
+	}
+    public void testOnOtpPage() throws InterruptedException {
+    	driver.findElement(By.className("XCUIElementTypeTextField")).click();
+    	Thread.sleep(3000);
+    	
+    	driver.findElementByAccessibilityId("2").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("3").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("4").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("8").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("7").click();
+    	Thread.sleep(1000);
+    	driver.findElementByAccessibilityId("6").click();
+    	Thread.sleep(8000);
+    	
+    	
+    	
+    	
+    }
+    public void testOnAddressyouPage() throws InterruptedException {
+
+    	MobileElement selectBtn = driver.findElementByAccessibilityId("Abbr");
+    	selectBtn.click();
+        Thread.sleep(2000);
+        
+        MobileElement mrBtn = driver.findElementByAccessibilityId("Mr.");
+    	mrBtn.click();
+        Thread.sleep(2000);
+        
+        MobileElement firstNameBlk = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"First Name\"`]"));
+        firstNameBlk.click();
+        Thread.sleep(2000);
+        firstNameBlk.sendKeys("Thoothukudi");
+        Thread.sleep(2000);
+        
+        
+        MobileElement lastNameBlk = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"Last Name\"`]"));
+        lastNameBlk.click();
+        Thread.sleep(2000);
+        lastNameBlk.sendKeys("PearlKing");
+        Thread.sleep(2000);
+        
+        MobileElement continueBtn = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"CONTINUE 󰅂\"`][3]"));
+        continueBtn.click();
+        Thread.sleep(2000);
+        
+    }
+    
+    public void testOnhowAddressyouPage() throws InterruptedException {
+    	MobileElement enteryourMailBlk = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"Enter your Email\"`]"));
+    	enteryourMailBlk.click();
+    	Thread.sleep(2000);
+    	enteryourMailBlk.sendKeys("toothukudipearl@yopmail.com");
+    	Thread.sleep(2000);
+    	
+    	MobileElement continueBtn = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"CONTINUE 󰅂\"`][3]"));
+        continueBtn.click();
+        Thread.sleep(2000);
+    }
+    
+    /////////////Login and New Registration ends here ////////////
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public void testOnSideBarBtn() throws InterruptedException {
+        
+    	MobileElement sideBarMenuBtn = driver.findElementByXPath("(//XCUIElementTypeOther[@name='Compass My location Google Maps Bottom Sheet Bottom Sheet'])[10]/XCUIElementTypeOther[3]/XCUIElementTypeOther/XCUIElementTypeOther[2]");
+    	sideBarMenuBtn.click();
+    	Thread.sleep(10000);
+        
+    	
+       
+        
+        
+    }
+    
+    public void testOnAccountArwBtn() throws InterruptedException {
+        
+    	MobileElement profileArrwBtn = driver.findElementByXPath("//XCUIElementTypeOther[@name=\"Good Afternoon, King MGR Khan Rama 󰅂\"]");
+    	profileArrwBtn.click();
+        Thread.sleep(12000);
+        
+        
+       
+        
+        
+    }
+    public void testOneditProfilePageArwBtn() throws InterruptedException {
+        
+    	MobileElement editprofilePicArw = driver.findElementByXPath("(//XCUIElementTypeOther[@name='King MGR Khan Rama 󰅂'])[1]");
+        editprofilePicArw.click();
+        Thread.sleep(5000);
+        
+        
+        MobileElement editprofilePicBtn = driver.findElementByXPath("(//XCUIElementTypeOther[@name='Edit your Profile Picture JPEG or PNG. Max 5 MB.'])[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther");
+        editprofilePicBtn.click();
+        Thread.sleep(5000);
+        
+        MobileElement takePhotoBtn = driver.findElementByAccessibilityId("Take Photo");
+        takePhotoBtn.click();
+        Thread.sleep(5000);
+        
+        
+        MobileElement editprofileBackBtn = driver.findElementByXPath("(//XCUIElementTypeOther[@name='Profile'])[2]/XCUIElementTypeOther");
+        editprofileBackBtn.click();
+        Thread.sleep(5000);
+        
+    }
+    public void testOneditPhoneNumPageArwBtn() throws InterruptedException {
+  
+        
+    	MobileElement editphonenumArw = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == '+971 520000966 󰅂'`][2]"));
+    	editphonenumArw.click();
+    	Thread.sleep(5000);
+    	MobileElement editphonenumBackBtn = driver.findElementByXPath("(//XCUIElementTypeOther[@name=\"Phone Number\"])[2]/XCUIElementTypeOther");
+    	editphonenumBackBtn.click();
+        Thread.sleep(5000);
+    	
+
+    }
+    	
+    public void testOneditEmailPageArwBtn() throws InterruptedException {
+    	MobileElement editEmailArw = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == 'voonkingaakarb@yopmail.com Click link in email to Verify 󰅂'`][2]"));
+    	editEmailArw.click();
+    	Thread.sleep(5000);
+    	
+    	
+    	
+    	
+    	
+    	PointerInput cancel = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		Sequence tap = new Sequence(cancel, 1);
+		tap.addAction(cancel.createPointerMove(Duration.ofMillis(0),
+		    PointerInput.Origin.viewport(), 392, 217));
+		tap.addAction(cancel.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		tap.addAction(new Pause(cancel, Duration.ofMillis(100)));
+		tap.addAction(cancel.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Arrays.asList(tap));
+		Thread.sleep(5000);
+	
+    	
+    	
+    	
+    	
+		PointerInput pointer = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		Sequence tap2 = new Sequence(pointer, 1);
+		tap2.addAction(pointer.createPointerMove(Duration.ofMillis(0),
+		    PointerInput.Origin.viewport(), 132, 219));
+		tap2.addAction(pointer.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		tap2.addAction(new Pause(pointer, Duration.ofMillis(100)));
+		tap2.addAction(pointer.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+		driver.perform(Arrays.asList(tap2));
+		Thread.sleep(5000);
+    	
+		
+		
+		
+		
+		String input = "Tutoriniking";
+		for (char ch : input.toCharArray()) {
+		    driver.findElementByAccessibilityId(String.valueOf(ch)).click();
+		    Thread.sleep(500); 
+		}
+		
+		MobileElement moreBtn = driver.findElementByAccessibilityId("more");
+        moreBtn.click();
+        Thread.sleep(5000);
+        
+        driver.findElementByAccessibilityId("@").click();
+        Thread.sleep(6000);
+        
+        
+        MobileElement moreBtn2 = driver.findElementByAccessibilityId("more");
+        moreBtn2.click()
+        Thread.sleep(6000);
+        
+        
+        String input2 = "yopmail";
+		for (char cha : input2.toCharArray()) {
+		    driver.findElementByAccessibilityId(String.valueOf(cha)).click();
+		    Thread.sleep(500); 
+		}
+		moreBtn.click();
+		Thread.sleep(6000);
+		driver.findElementByAccessibilityId(".").click();
+        Thread.sleep(3000);
+        
+        moreBtn.click();
+		Thread.sleep(3000);
+        String input3 = "com";
+		for (char chr: input3.toCharArray()) {
+		    driver.findElementByAccessibilityId(String.valueOf(chr)).click();
+		    Thread.sleep(500); 
+		}
+		
+    	
+    	
+		MobileElement updateBtn = driver.findElementByAccessibilityId("UPDATE");
+        updateBtn.click();
+        Thread.sleep(5000);
+		
+    	
+    	
+    	MobileElement editEmailPageBackBtn = driver.findElementByXPath("(//XCUIElementTypeOther[@name=\"Email\"])[2]/XCUIElementTypeOther");
+    	 editEmailPageBackBtn.click();
+        Thread.sleep(5000);
+    }
+    
+    public void testOnMyactivityArwBtn() throws InterruptedException {
+    	MobileElement myActivityArwBtn = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"MY ACTIVITY 󰅂\"`][2]"));
+    	myActivityArwBtn.click();
+    	Thread.sleep(5000);
+    	
+    	MobileElement pastRidesBtn = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"PAST RIDES\"`]"));
+    	pastRidesBtn.click();
+    	Thread.sleep(5000);
+    	
+    	MobileElement upcomingRidesBtn = driver.findElement(MobileBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"UPCOMING\"`]"));
+    	upcomingRidesBtn.click();
+    	Thread.sleep(5000);
+    	
+    	MobileElement myactivityPageBackBtn = driver.findElementByXPath("(//XCUIElementTypeOther[@name=\"My Activity\"])[2]/XCUIElementTypeOther");
+    	myactivityPageBackBtn.click();
+        Thread.sleep(5000);
+    }
+}

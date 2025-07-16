@@ -1,0 +1,93 @@
+package English_Android_Customer;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_DIA_T2_Card extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void testOnsetUp() throws MalformedURLException, InterruptedException, Exception {
+		super.setUp();
+	}
+
+	@Test
+	public void testOnIntroPage() throws InterruptedException {
+		super.testIntroPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnIntroPage"})
+	public void testLetsgetstartedPage() throws InterruptedException {
+		super.testLetsgetstartedPage();
+	}
+	
+	@Test(dependsOnMethods= {"testLetsgetstartedPage"})
+	public void testOnOTPlogin_Simu() throws InterruptedException, IOException {
+		super.testOnOTPlogin_Simu();
+	}
+	
+	@Test(dependsOnMethods= {"testOnOTPlogin_Simu"})
+	public void testOnMapAllowPopup() throws InterruptedException {
+		super.testOnMapAllow();
+	}
+	
+	@Test(dependsOnMethods= {"testOnMapAllowPopup"})
+	public void testOnNotificAllowPopup() throws InterruptedException {
+		super.testOnNotificAllow();
+	}
+	
+	@Test(dependsOnMethods= {"testOnNotificAllowPopup"})
+	public void testOnHourlyHomescreen() throws InterruptedException {
+		super.testOnHourlyHomescreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyHomescreen"})
+	public void testOnHourlyDIAHomeScreen() throws InterruptedException {
+		super.testOnHourlyDIAHomeScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyDIAHomeScreen"})
+	public void testOnRideNow_DAP_T2_Page() throws InterruptedException {
+		super.testOnRideNow_DAP_T2_Page();
+	}
+	
+	@Test(dependsOnMethods= {"testOnRideNow_DAP_T2_Page"})
+	public void testOnRideNow_DAP_APU_Page() throws InterruptedException {
+		super.testOnRideNow_DAP_APU_Page();
+	}
+	@Test (dependsOnMethods= {"testOnRideNow_DAP_APU_Page"})
+	public void testOnchooseyourcarPage() throws InterruptedException {
+		super.testOnchooseyourcarPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnchooseyourcarPage"})
+	public void testOnyourRidePageCard() throws InterruptedException {
+		super.testOnyourRidePageCard();
+	}
+	
+	@Test(dependsOnMethods= {"testOnyourRidePageCard"})
+	public void testOnHourlyselectDurationPage() throws InterruptedException {
+		super.testOnHourlyselectDurationPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyselectDurationPage"})
+	public void testOnpickupScreen() throws InterruptedException {
+		super.testOnpickupScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnpickupScreen"})
+	public void testOnHourlysManageYourPage() throws InterruptedException {
+		super.testOnHourlysManageYourPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlysManageYourPage"})
+	public void testOnquicfeedbackScreen() throws InterruptedException {
+		super.testOnquicfeedbackScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnquicfeedbackScreen"})
+	public void testOnexperiencefeedbackScreen() throws InterruptedException {
+		super.testOnexperiencefeedbackScreen();
+	}
+}

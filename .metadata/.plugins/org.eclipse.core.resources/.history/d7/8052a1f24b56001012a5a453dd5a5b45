@@ -1,0 +1,178 @@
+package ios;
+
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class RG_rideNow extends customerapplaunch{
+	Launch_RideNow_DIA_T1_Cash dubaiAirportCashFlow1 = new Launch_RideNow_DIA_T1_Cash();
+	Launch_RideNow_DM_Cinema_Card dubaiMallCardFlow1 = new Launch_RideNow_DM_Cinema_Card();
+	Launch_RideNow_OtherCities othrRideNowCardFlow = new Launch_RideNow_OtherCities();
+	Launch_RideNow_ScheduleLater_StartTripEarly_Incomplete diaStartTripEarlyIncompleteFlow = new Launch_RideNow_ScheduleLater_StartTripEarly_Incomplete();
+	Launch_RideNow_ScheduleLater_StartTripEarly  diaStarTripEarlyCompleteFlow = new Launch_RideNow_ScheduleLater_StartTripEarly();
+	Launch_RideNow_ScheduleLater  adRideNowSchedulater = new Launch_RideNow_ScheduleLater();
+    Launch_RideNow_AD_ApplePay adRideNowAppleFlow = new Launch_RideNow_AD_ApplePay();
+    Launch_RideNow_SceduleLater_DM_Zab_Apple dmZabSchLaterFlow = new Launch_RideNow_SceduleLater_DM_Zab_Apple ();
+    Launch_RideNow_AddOnStop_CompleteRide addOnStopsRideNowFlow = new Launch_RideNow_AddOnStop_CompleteRide();
+    Launch_RideNow_ChauffeurCancelsTrip rideNowChauffCancelTripFlow = new Launch_RideNow_ChauffeurCancelsTrip();
+	@BeforeClass
+    public void LauchsetUp() throws MalformedURLException, InterruptedException {
+		super.setUp();
+		super.testOnLetsGoPage();
+		super.testOnLetsgetStartedexistAccntPage();
+		super.testOnOtpPage();
+		System.out.println("Case 1: Customer App Successfully Launched and Logged In");
+	}
+	@Test
+	public void launchdubaiAirportLocCashFlow1()  throws InterruptedException {
+		dubaiAirportCashFlow1.testOnHomeScreen_RideNow();
+		dubaiAirportCashFlow1.testOnHomeScreen_RideNow_DIA_WhereToPage();
+		dubaiAirportCashFlow1.testOnHomeScreenHourly_DIA_PickupTerminal1();
+		dubaiAirportCashFlow1.testOncAPUPage();
+		dubaiAirportCashFlow1.testOncarselectionPage() ;
+		dubaiAirportCashFlow1.testOnpaymentPageforcash();
+		dubaiAirportCashFlow1.testOnpickUpPage();
+		dubaiAirportCashFlow1.testOnQuickFeedBackPage();
+		dubaiAirportCashFlow1.testOnFeedBackPage();
+		Thread.sleep(10000);
+		System.out.println("Case 2: 'Ride Now' Flow Completed – Cash Payment Selected, Pickup at Dubai International Airport Terminal 1");
+	
+		
+	}
+	@Test(dependsOnMethods = {"launchdubaiAirportLocCashFlow1"})
+	public void launchdubaiMallCardFlow1()  throws InterruptedException {
+		dubaiMallCardFlow1.testOnHomeScreen_RideNow();
+		dubaiMallCardFlow1.testOnHomeScreen_RideNow_DM_WhereToPage();
+		dubaiMallCardFlow1.testOnHomeScreenHourly_DM_Pickup_ZabeelParking();
+		dubaiMallCardFlow1.testOncarselectionPage() ;
+		dubaiMallCardFlow1.testOnChauffeurNotes();
+		dubaiMallCardFlow1.testOnpaymentPageforcard();
+		dubaiMallCardFlow1.testOnpickUpPage();
+		dubaiMallCardFlow1.testOnQuickFeedBackPage();
+		dubaiMallCardFlow1.testOnFeedBackPage();
+		Thread.sleep(10000);
+		System.out.println("Case 3: 'Ride Now' Booking Completed – Card Payment Selected, Pickup Location: Dubai Mall");
+	
+		
+	}
+	@Test(dependsOnMethods = {"launchdubaiMallCardFlow1"})
+	
+	
+	public void launchrideNow_OtherCities()  throws InterruptedException {
+		othrRideNowCardFlow.testOnHomeScreen_RideNow();
+		othrRideNowCardFlow.testOnHomeScreen_RideNow_Burj_WhereToPage();
+		othrRideNowCardFlow.testOncarselectionPage();
+		othrRideNowCardFlow.testOnChauffeurNotes();
+		othrRideNowCardFlow.testOnpaymentPageforcard();
+		othrRideNowCardFlow.testOnpickUpPage();
+		othrRideNowCardFlow.testOnQuickFeedBackPage();
+		othrRideNowCardFlow.testOnFeedBackPage();
+		System.out.println("Case 4: 'Ride Now' Booking Completed – Card Payment Selected, Pickup Location: Other");
+		Thread.sleep(10000);
+	}
+	
+	
+	@Test(dependsOnMethods = {"launchrideNow_OtherCities"})
+	
+	public void launchabudhabiRideNowAppleFlow()  throws InterruptedException {
+		adRideNowAppleFlow.testOnHomeScreen_RideNow();
+		adRideNowAppleFlow.testOnHomeScreen_RideNow_AD_WhereToPage();
+		adRideNowAppleFlow.testOncarselectionPage();
+		adRideNowAppleFlow.testOnChauffeurNotes();
+		adRideNowAppleFlow.testOnpaymentPageforcash();
+		adRideNowAppleFlow.testOnpickUpPage();
+		adRideNowAppleFlow.testOnFeedBackPage();
+		System.out.println("Case 5: 'Ride Now' Booking Completed – Cash Payment Selected, Pickup Location: Abu Dhabi ");
+		Thread.sleep(10000);
+	}
+	
+	
+	@Test(dependsOnMethods = {"launchabudhabiRideNowAppleFlow"})
+	
+	public void launchdiaStartTripEarlyIncompleteFlow ()  throws InterruptedException {
+		diaStartTripEarlyIncompleteFlow .testOnHomeScreenRideNow_ScheduleLaterBtn();
+		diaStartTripEarlyIncompleteFlow .testOnHomeScreen_RideNow_DIA_WhereToPage();
+		diaStartTripEarlyIncompleteFlow .testOnHomeScreenHourly_DIA_PickupTerminal2();
+		diaStartTripEarlyIncompleteFlow.testOncAPUPage();
+		diaStartTripEarlyIncompleteFlow.testOncarselectionPage() ;
+		diaStartTripEarlyIncompleteFlow.testOnpaymentPageforcash();
+		diaStartTripEarlyIncompleteFlow.testOnpickuppopUpBar();
+		diaStartTripEarlyIncompleteFlow.testOnStartTripcancelbookingPage();
+		diaStartTripEarlyIncompleteFlow.testOnPayNowPageCard();
+		Thread.sleep(30000);
+		System.out.println("Case 6: Completed 'Ride Now' Flow – Early Trip Start, Canceled, and Paid Now by Card – Pickup at Dubai International Airport Terminal 2");
+	
+		
+	}
+	@Test (dependsOnMethods = {"launchdiaStartTripEarlyIncompleteFlow"})
+	
+	public void launchdiaStarTripEarlyCompleteFlow()  throws InterruptedException {
+		diaStarTripEarlyCompleteFlow.testOnHomeScreenRideNow_ScheduleLaterBtn();
+		diaStarTripEarlyCompleteFlow.testOnHomeScreen_RideNow_DIA_WhereToPage();
+		diaStarTripEarlyCompleteFlow.testOnHomeScreenHourly_DIA_PickupTerminal3();
+		diaStarTripEarlyCompleteFlow.testOncAPUPage();
+		diaStarTripEarlyCompleteFlow.testOncarselectionPage() ;
+		diaStarTripEarlyCompleteFlow.testOnpaymentPageforapplePay();
+		diaStarTripEarlyCompleteFlow.testOnpickuppopUpBar();
+		diaStarTripEarlyCompleteFlow.testOnStarttriEarlyBtn();
+		diaStarTripEarlyCompleteFlow.testOnpickUpPage();
+		diaStarTripEarlyCompleteFlow.testOnQuickFeedBackPage();
+		diaStarTripEarlyCompleteFlow.testOnFeedBackPage();
+		Thread.sleep(30000);
+		System.out.println("Case 7: 'Ride Now' Booking Executed – Trip Started Early, Payment via Apple Pay; Pickup Location: Dubai International Airport Terminal 3");
+	
+		
+	}
+	@Test(dependsOnMethods = {"launchdiaStarTripEarlyCompleteFlow"})
+	public void launchadRideNowSchedulater()  throws InterruptedException {
+		adRideNowSchedulater.testOnHomeScreenRideNow_ScheduleLaterBtn();
+		adRideNowSchedulater.testOnHomeScreen_RideNow_AD_WhereToPage();
+		adRideNowSchedulater.testOncarselectionPage();
+		adRideNowSchedulater.testOnChauffeurNotes();
+		adRideNowSchedulater.testOnpaymentPageforapplePay() ;
+		Thread.sleep(10000);
+		System.out.println("Case 8: ‘Schedule Later’ Ride Now Booked Successfully – Payment via Apple Pay, Pickup Location: Abu Dhabi");
+	
+		
+	}
+	
+	@Test(dependsOnMethods = {"launchadRideNowSchedulater"})
+	public void launchdiazabRideNowSchedulater()  throws InterruptedException {
+		dmZabSchLaterFlow.testOnHomeScreenRideNow_ScheduleLaterBtn();
+		dmZabSchLaterFlow .testOnHomeScreen_RideNow_DM_WhereToPage();
+		dmZabSchLaterFlow .testOnHomeScreenHourly_DM_Pickup_ZabeelParking();
+		dmZabSchLaterFlow .testOncarselectionPage();
+		dmZabSchLaterFlow .testOnChauffeurNotes();
+		dmZabSchLaterFlow .testOnpaymentPageforapplePay() ;
+		Thread.sleep(10000);
+		System.out.println("Case 9: ‘Schedule Later’ Booking under ‘Ride Now’ Flow Completed – Apple Pay Used, Pickup Location: Dubai Mall");
+	
+	}
+		
+		@Test(dependsOnMethods = {"launchdiazabRideNowSchedulater"})
+	public void launchdiazabRideNowaddOnFlow()  throws InterruptedException {
+		addOnStopsRideNowFlow.testOnHomeScreen_RideNow();
+		addOnStopsRideNowFlow.testOnHomeScreen_RideNow_DM_WhereToPage();
+		addOnStopsRideNowFlow.testOnHomeScreenHourly_DM_Pickup_ZabeelParking();
+		addOnStopsRideNowFlow.testOncarselectionPage();
+		addOnStopsRideNowFlow.testOnChauffeurNotes();
+		addOnStopsRideNowFlow.testOnpaymentPageforcard();
+		addOnStopsRideNowFlow.testOnpickUpPage();
+		addOnStopsRideNowFlow.testOn_RideNow_AddOnStops();
+		addOnStopsRideNowFlow.testOnQuickFeedBackPage();
+		addOnStopsRideNowFlow.testOnFeedBackPage();
+		Thread.sleep(10000);
+		System.out.println("Case 10: ‘Ride Now’  Add On Stops Flow Completed – Card Pay Used, Pickup Location: Dubai Mall");
+	}
+		@Test(dependsOnMethods = {"launchdiazabRideNowSchedulater"})
+		public void launchdmRideNowchauffeurcancelFlow()  throws InterruptedException {
+			rideNowChauffCancelTripFlow.testOnHomeScreen_RideNow();
+			rideNowChauffCancelTripFlow.testOnHomeScreen_RideNow_DM_WhereToPage();
+			rideNowChauffCancelTripFlow.testOnHomeScreenHourly_DM_Pickup_ZabeelParking();
+			rideNowChauffCancelTripFlow.testOncarselectionPage();
+			rideNowChauffCancelTripFlow.testOnChauffeurNotes();
+			rideNowChauffCancelTripFlow.testOnpaymentPageforapplePay();
+			System.out.println("Case 11: ‘Ride Now’   Flow Chauffeur cancel the trip – Apple Pay Used, Pickup Location: Dubai Mall");
+			}
+}

@@ -1,0 +1,90 @@
+package English_Android_Customer;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_DM_Zabeel_Card  extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void testOnsetUp() throws MalformedURLException, InterruptedException, Exception {
+		super.setUp();
+	}
+
+	@Test
+	public void testOnIntroPage() throws InterruptedException {
+		super.testIntroPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnIntroPage"})
+	public void testonLetsgetstartedPage() throws InterruptedException {
+		super.testLetsgetstartedPage();
+	}
+	
+	@Test(dependsOnMethods= {"testonLetsgetstartedPage"})
+	public void testOnOTPloginPage() throws InterruptedException, IOException {
+		super.testOTPloginPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnOTPloginPage"})
+	public void testOnMapAllowPopup() throws InterruptedException {
+		super.testOnMapAllowPopup();
+	}
+	
+	@Test(dependsOnMethods= {"testOnMapAllowPopup"})
+	public void testOnNotificAllowPopup() throws InterruptedException {
+		super.testOnNotificAllowPopup();
+	}
+	
+	@Test(dependsOnMethods= {"testOnNotificAllowPopup"})
+	public void testOnHourlyHomescreen() throws InterruptedException {
+		super.testOnHourlyHomescreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyHomescreen"})
+	public void testOnHourlyDubaiMallHomeScreen() throws InterruptedException {
+		super.testOnHourlyDubaiMallHomeScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyDubaiMallHomeScreen"})
+	public void testDubaiMall_zabeelParking() throws InterruptedException {
+		super.testDubaiMall_zabeelParking();
+	}
+	
+	@Test(dependsOnMethods= {"testDubaiMall_zabeelParking"})
+	public void testOnchooseyourcarPage() throws InterruptedException {
+		super.testOnchooseyourcarPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnchooseyourcarPage"})
+	public void testOnyourRidePageCard() throws InterruptedException {
+		super.testOnyourRidePageCard();
+	}
+	
+	@Test(dependsOnMethods= {"testOnyourRidePageCard"})
+	public void testOnHourlyselectDurationPage() throws InterruptedException {
+		super.testOnHourlyselectDurationPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyselectDurationPage"})
+	public void testOnpickupScreen() throws InterruptedException {
+		super.testOnpickupScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnpickupScreen"})
+	public void testOnHourlysManageYourPage() throws InterruptedException {
+		super.testOnHourlysManageYourPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlysManageYourPage"})
+	public void testOnquicfeedbackScreen() throws InterruptedException {
+		super.testOnquicfeedbackScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnquicfeedbackScreen"})
+	public void testOnexperiencefeedbackScreen() throws InterruptedException {
+		super.testOnexperiencefeedbackScreen();
+	}
+}
+}

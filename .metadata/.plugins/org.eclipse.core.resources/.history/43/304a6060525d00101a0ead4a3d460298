@@ -1,0 +1,80 @@
+package English_Android_Customer;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class RideNow_RG_TestCases extends CustomerApp_English_BaseClass{
+	
+	
+	
+	
+	
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("✅ Case 1 : Customer app launch successful. User login and initial setup completed.");
+		Thread.sleep(20000);
+	}
+	
+	@Test
+	public void Launch_RideNow_Burj_Cash() throws Exception {
+		Launch_RideNow_DuBurj_Cash RideNow_Burj_Cash = new Launch_RideNow_DuBurj_Cash();
+		RideNow_Burj_Cash.testOnRideNowHomescreen();
+		RideNow_Burj_Cash.testOnRideNowWheretoPage();
+		RideNow_Burj_Cash.testOnpickupPage();
+		RideNow_Burj_Cash.testOnchooseyourcarPage();
+		RideNow_Burj_Cash.testOnyChauffeur_Notes();
+		RideNow_Burj_Cash.testOnyourRidePageCash();
+		RideNow_Burj_Cash.testOnpickupScreen();
+		RideNow_Burj_Cash.testOnquicfeedbackScreen();
+		RideNow_Burj_Cash.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 2 : RideNow booking validated — Customer successfully booked a ride from Burj Khalifa to Palm Jumeirah and completed the journey with cash payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	
+	public void Launch_RideNow_DubaiMall_Zabeel_Card() throws Exception {
+		Launch_RideNow_DM_Zabeel_Card RideNow_DM_Fas_Card = new Launch_RideNow_DM_Zabeel_Card();
+		RideNow_DM_Fas_Card.testOnRideNowHomescreen();
+		RideNow_DM_Fas_Card.testOnWheretoPage_DubaiMall();
+		RideNow_DM_Fas_Card.testDubaiMall_zabeelParking();
+		RideNow_DM_Fas_Card.testOnpickupPage();
+		RideNow_DM_Fas_Card.testOnchooseyourcarPage();
+		RideNow_DM_Fas_Card.testOnyChauffeur_Notes();
+		RideNow_DM_Fas_Card.testOnyourRidePageCard();
+		RideNow_DM_Fas_Card.testOnpickupScreen();
+		RideNow_DM_Fas_Card.testOnquicfeedbackScreen();
+		RideNow_DM_Fas_Card.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 3 : RideNow booking validated — Customer successfully booked a ride from Dubai Mall Zabeel Car ParKing to Palm Jumeirah and completed the journey with card payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	public void Launch_RideNow_DIA_T3_Gpay() throws Exception {
+		Launch_RideNow_DM_Zabeel_Card RideNow_DIA_T3_Gpay = new Launch_RideNow_DM_Zabeel_Card();
+		RideNow_DIA_T3_Gpay.testOnRideNowHomescreen();
+		RideNow_DIA_T3_Gpay.testOnRideNowWheretoPage_DAP();
+		RideNow_DIA_T3_Gpay.testOnRideNow_DAP_T3_Page();
+		RideNow_DIA_T3_Gpay.testOnRideNow_DAP_APU_Page();
+		RideNow_DIA_T3_Gpay.testOnpickupPage();
+		RideNow_DIA_T3_Gpay.testOnchooseyourcarPage();
+		RideNow_DIA_T3_Gpay.testOnyourRidePageGpay();
+		RideNow_DIA_T3_Gpay.testOnpickupScreen();
+		RideNow_DIA_T3_Gpay.testOnquicfeedbackScreen();
+		RideNow_DIA_T3_Gpay.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 4 : RideNow booking validated — Customer successfully booked a ride from Dubai International Airport Terminal 3 to Palm Jumeirah and completed the journey with Gpay payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	
+}

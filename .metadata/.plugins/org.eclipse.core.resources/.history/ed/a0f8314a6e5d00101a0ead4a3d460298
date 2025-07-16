@@ -1,0 +1,173 @@
+package English_Android_Customer;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class RideNow_RG_TestCases extends CustomerApp_English_BaseClass{
+	
+	
+	
+	
+	
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("✅ Case 1 : Customer app launch successful. User login and initial setup completed.");
+		Thread.sleep(20000);
+	}
+	
+	@Test
+	public void Launch_RideNow_Burj_Cash() throws Exception {
+		Launch_RideNow_DuBurj_Cash RideNow_Burj_Cash = new Launch_RideNow_DuBurj_Cash();
+		RideNow_Burj_Cash.testOnRideNowHomescreen();
+		RideNow_Burj_Cash.testOnRideNowWheretoPage();
+		RideNow_Burj_Cash.testOnpickupPage();
+		RideNow_Burj_Cash.testOnchooseyourcarPage();
+		RideNow_Burj_Cash.testOnyChauffeur_Notes();
+		RideNow_Burj_Cash.testOnyourRidePageCash();
+		RideNow_Burj_Cash.testOnpickupScreen();
+		RideNow_Burj_Cash.testOnquicfeedbackScreen();
+		RideNow_Burj_Cash.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 2 : RideNow booking validated — Customer successfully booked a ride from Burj Khalifa to Palm Jumeirah and completed the journey with cash payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	@Test (dependsOnMethods= {"Launch_RideNow_Burj_Cash"})
+	public void Launch_RideNow_DubaiMall_Zabeel_Card() throws Exception {
+		Launch_RideNow_DM_Zabeel_Card RideNow_DM_Fas_Card = new Launch_RideNow_DM_Zabeel_Card();
+		RideNow_DM_Fas_Card.testOnRideNowHomescreen();
+		RideNow_DM_Fas_Card.testOnWheretoPage_DubaiMall();
+		RideNow_DM_Fas_Card.testDubaiMall_zabeelParking();
+		RideNow_DM_Fas_Card.testOnchooseyourcarPage();
+		RideNow_DM_Fas_Card.testOnyChauffeur_Notes();
+		RideNow_DM_Fas_Card.testOnyourRidePageCard();
+		RideNow_DM_Fas_Card.testOnpickupScreen();
+		RideNow_DM_Fas_Card.testOnquicfeedbackScreen();
+		RideNow_DM_Fas_Card.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 3 : RideNow booking validated — Customer successfully booked a ride from Dubai Mall Zabeel Car ParKing to Palm Jumeirah and completed the journey with card payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+    @Test (dependsOnMethods= {"Launch_RideNow_DubaiMall_Zabeel_Card"})
+	public void Launch_RideNow_DIA_T3_Gpay() throws Exception {
+		Launch_RideNow_DIA_T3_Gpay RideNow_DIA_T3_Gpay = new Launch_RideNow_DIA_T3_Gpay();
+		RideNow_DIA_T3_Gpay.testOnRideNowHomescreen();
+		RideNow_DIA_T3_Gpay.testOnRideNowWheretoPage_DAP();
+		RideNow_DIA_T3_Gpay.testOnRideNow_DAP_T3_Page();
+		RideNow_DIA_T3_Gpay.testOnRideNow_DAP_APU_Page();
+		RideNow_DIA_T3_Gpay.testOnchooseyourcarPage();
+		RideNow_DIA_T3_Gpay.testOnyourRidePageGpay();
+		RideNow_DIA_T3_Gpay.testOnpickupScreen();
+		RideNow_DIA_T3_Gpay.testOnquicfeedbackScreen();
+		RideNow_DIA_T3_Gpay.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 4 : RideNow booking validated — Customer successfully booked a ride from Dubai International Airport Terminal 3 to Palm Jumeirah and completed the journey with Gpay payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	@Test (dependsOnMethods= {"Launch_RideNow_DIA_T3_Gpay"})
+	public void Launch_RideNow_AbuDhabi_Gpay() throws Exception {
+		Launch_RideNow_AbuDhabi_Gpay RideNow_Abu_Gpay = new Launch_RideNow_AbuDhabi_Gpay();
+		RideNow_Abu_Gpay.testOnRideNowHomescreen();
+		RideNow_Abu_Gpay.testOnWheretoPage_AD();
+		RideNow_Abu_Gpay.testOnpickupPage();
+		RideNow_Abu_Gpay.testOnchooseyourcarPage_AD();
+		RideNow_Abu_Gpay.testOnyChauffeur_Notes();
+		RideNow_Abu_Gpay.testOnyourRidePageGpay();
+		RideNow_Abu_Gpay.testOnpickupScreen();
+		RideNow_Abu_Gpay.testOnquicfeedbackScreen();
+		RideNow_Abu_Gpay.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 5 : RideNow booking validated — Customer successfully booked a ride from AbuDhabi and completed the journey with Gpay payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	@Test (dependsOnMethods= {"Launch_RideNow_AbuDhabi_Gpay"})
+	public void Launch_RideNow_StartTripEarly_DM_Fas_Card() throws Exception {
+		Launch_RideNow_ScheduleLater_StartTripEarly_DM_FA_Card RideNow_STEarly_Card = new Launch_RideNow_ScheduleLater_StartTripEarly_DM_FA_Card();
+		RideNow_STEarly_Card.testOnscheduleLater();
+		RideNow_STEarly_Card.testScheduleLaterFlow();
+		RideNow_STEarly_Card.testOnWheretoPage_DubaiMall();
+		RideNow_STEarly_Card.testOnDubaiMall_FashionAveParking();
+		RideNow_STEarly_Card.testOnchooseyourcarPage();
+		RideNow_STEarly_Card.testOnyChauffeur_Notes();
+		RideNow_STEarly_Card.testOnyourRidePageCard();
+		RideNow_STEarly_Card.testOnOkschedulepage();
+		RideNow_STEarly_Card.testMinimizeAndMaximize();
+		RideNow_STEarly_Card.testOnPickupPopup();
+		RideNow_STEarly_Card.testOnstartTripEarlycomplete() ;
+		RideNow_STEarly_Card.testOnpickupScreen();
+		RideNow_STEarly_Card.testOnquicfeedbackScreen();
+		RideNow_STEarly_Card.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 7 : RideNow ScheduleLater StartTrip Early booking validated — Customer successfully booked a Start Trip Early ride from Dubai  and completed the journey with Card payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	@Test (dependsOnMethods= {"Launch_RideNow_StartTripEarly_DM_Fas_Card"})
+	public void Launch_RideNow_StartTripEarly_Cancel_Burj_PayByGpay() throws Exception {
+		Launch_RN_SL_StartTripEarly_Cancel_PayNow_Gpay RideNow_EarlyCan_Gpay = new Launch_RN_SL_StartTripEarly_Cancel_PayNow_Gpay();
+		RideNow_EarlyCan_Gpay.testOnscheduleLater();
+		RideNow_EarlyCan_Gpay.testScheduleLaterFlow();
+		RideNow_EarlyCan_Gpay.testOnRideNowWheretoPage();
+		RideNow_EarlyCan_Gpay.testOnpickupPage();
+		RideNow_EarlyCan_Gpay.testOnchooseyourcarPage();
+		RideNow_EarlyCan_Gpay.testOnyChauffeur_Notes();
+		RideNow_EarlyCan_Gpay.testOnyourRidePageCash();
+		RideNow_EarlyCan_Gpay.testOnOkschedulepage();
+		RideNow_EarlyCan_Gpay.testMinimizeAndMaximize();
+		RideNow_EarlyCan_Gpay.testOnPickupPopup();
+		RideNow_EarlyCan_Gpay.testOnstartTripEarlyPaymentIncomplete_PayByGpay() ;
+		System.out.println("✅ Case 8 : RideNow ScheduleLater StartTripEarly Cancel booking validated — Customer successfully booked a ride from Burj Khalifa and canceled the journey and pending payment Done By Gpay payment.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	
+	@Test (dependsOnMethods= {"Launch_RideNow_StartTripEarly_Cancel_Burj_PayByGpay"})
+	public void Launch_RideNow_ScheduleLater_DM_DuLGL_Cash() throws Exception {
+		Launch_RideNow_ScheduleLater_DM_DuLGL_Cash RideNow_SL_DM_Cash = new Launch_RideNow_ScheduleLater_DM_DuLGL_Cash();
+		RideNow_SL_DM_Cash.testOnscheduleLater();
+		RideNow_SL_DM_Cash.testScheduleLaterFlow();
+		RideNow_SL_DM_Cash.testOnWheretoPage_DubaiMall();
+		RideNow_SL_DM_Cash.testOnDubaiMall_DuLGLevel();
+		RideNow_SL_DM_Cash.testOnchooseyourcarPage();
+		RideNow_SL_DM_Cash.testOnyChauffeur_Notes();
+		RideNow_SL_DM_Cash.testOnyourRidePageCash();
+		RideNow_SL_DM_Cash.testOnOkschedulepage();
+		System.out.println("✅ Case 9 : RideNow ScheduleLater  booking validated — Customer successfully booked a ride from Dubai Mall Du Lower Ground  By Cash payment  Option.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+	@Test (dependsOnMethods= {"Launch_RideNow_ScheduleLater_DM_DuLGL_Cash"})
+	public void Launch_RideNow_ScheduleLater_AbuDhabi_Card() throws Exception {
+		Launch_RideNow_ScheduleLater_AbuDhabi_Card RideNow_SL_Abu_Card = new Launch_RideNow_ScheduleLater_AbuDhabi_Card();
+		RideNow_SL_Abu_Card.testOnscheduleLater();
+		RideNow_SL_Abu_Card.testScheduleLaterFlow();
+		RideNow_SL_Abu_Card.testOnWheretoPage_AD();
+		RideNow_SL_Abu_Card.testOnchooseyourcarPage_AD();
+		RideNow_SL_Abu_Card.testOnyChauffeur_Notes();
+		RideNow_SL_Abu_Card.testOnyourRidePageCard();
+		RideNow_SL_Abu_Card.testOnOkschedulepage();
+		System.out.println("✅ Case 10 : RideNow ScheduleLater  booking validated — Customer successfully booked a ride from AbuDhabi Golf Club  By Card payment  Option.");
+		Thread.sleep(20000);
+	
+	
+	
+	}
+}

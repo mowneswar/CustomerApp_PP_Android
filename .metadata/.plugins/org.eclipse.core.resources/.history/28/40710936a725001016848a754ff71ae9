@@ -1,0 +1,37 @@
+package ios;
+
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_sidebarmenu extends customerapplaunch {
+	@BeforeClass
+    public void setUp() throws MalformedURLException, InterruptedException {
+		super.setUp();
+	}
+	@Test
+	public void testOnLetgetStartedPage() throws InterruptedException {
+		super.testOnLetgetStartedPage();
+	}
+	@Test(dependsOnMethods = {"testOnLetgetStartedPage"})
+	public void testOnSideBarBtn() throws InterruptedException {
+		super.testOnSideBarBtn();
+	}
+	@Test(dependsOnMethods = {"testOnSideBarBtn"})
+	public void testOnAccountArwBtn() throws InterruptedException {
+		super.testOnAccountArwBtn();
+	}
+	@Test(dependsOnMethods = {"testOnAccountArwBtn"})
+	 public void testOneditProfilePageArwBtn() throws InterruptedException {
+		 super.testOneditProfilePageArwBtn();
+	 }
+	@Test(dependsOnMethods = {"testOneditProfilePageArwBtn"})
+	public void testOneditPhoneNumPageArwBtn() throws InterruptedException {
+		super.testOneditPhoneNumPageArwBtn();
+	}
+	@Test(dependsOnMethods = {"testOneditPhoneNumPageArwBtn"})
+	public void testOneditEmailPageArwBtn() throws InterruptedException {
+		super.testOneditEmailPageArwBtn();
+	}
+}

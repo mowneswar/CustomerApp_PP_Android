@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SelectedCasesSuite">
+  <test name="SelectedTests">
+    <groups>
+      <run>
+        <include name="selected"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="RG_Hourly"/>
+    </classes>
+  </test>
+</suite>

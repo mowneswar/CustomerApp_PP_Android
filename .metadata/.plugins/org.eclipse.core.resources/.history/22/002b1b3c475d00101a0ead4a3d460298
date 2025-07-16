@@ -1,0 +1,41 @@
+package English_Android_Customer;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class RideNow_RG_TestCases extends CustomerApp_English_BaseClass{
+	Launch_RideNow_DuBurj_Cash RideNow_Burj_Cash = new Launch_RideNow_DuBurj_Cash();
+	
+	
+	
+	
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("Case 1: Customer App Successfully Launched and Logged In");
+	}
+	
+	@Test
+	public void Launch_RideNow_Burj_Cash() throws Exception {
+		RideNow_Burj_Cash.testOnRideNowHomescreen();
+		RideNow_Burj_Cash.testOnRideNowWheretoPage();
+		RideNow_Burj_Cash.testOnpickupPage();
+		RideNow_Burj_Cash.testOnchooseyourcarPage();
+		RideNow_Burj_Cash.testOnyourRidePageCash();
+		RideNow_Burj_Cash.testOnpickupScreen();
+		RideNow_Burj_Cash.testOnquicfeedbackScreen();
+		RideNow_Burj_Cash.testOnexperiencefeedbackScreen();
+	
+	
+	
+	
+	}
+	
+	
+	
+}

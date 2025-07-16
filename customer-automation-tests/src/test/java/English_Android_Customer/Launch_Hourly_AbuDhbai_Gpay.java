@@ -1,0 +1,83 @@
+package English_Android_Customer;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_AbuDhbai_Gpay extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void testOnsetUp() throws MalformedURLException, InterruptedException, Exception {
+		super.setUp();
+	}
+
+	@Test
+	public void testOnIntroPage() throws InterruptedException {
+		super.testIntroPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnIntroPage"})
+	public void testLetsgetstartedPage() throws InterruptedException {
+		super.testLetsgetstartedPage();
+	}
+	
+	@Test(dependsOnMethods= {"testLetsgetstartedPage"})
+	public void testOnOTPlogin_Simu() throws InterruptedException, IOException {
+		super.testOnOTPlogin_Simu();
+	}
+	
+	@Test(dependsOnMethods= {"testOnOTPlogin_Simu"})
+	public void testOnMapAllowPopup() throws InterruptedException {
+		super.testOnMapAllow();
+	}
+	
+	@Test(dependsOnMethods= {"testOnMapAllowPopup"})
+	public void testOnNotificAllowPopup() throws InterruptedException {
+		super.testOnNotificAllow();
+	}
+	
+	@Test(dependsOnMethods= {"testOnNotificAllowPopup"})
+	public void testOnHourlyHomescreen() throws InterruptedException {
+		super.testOnHourlyHomescreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyHomescreen"})
+	public void testOnHourlyPickupPage_AbuDhabi() throws InterruptedException {
+		super.testOnHourlyPickupPage_AbuDhabi();
+	}
+	@Test(dependsOnMethods= {"testOnHourlyPickupPage_AbuDhabi"})
+	public void testOnchooseyourcarPage_AD() throws InterruptedException {
+
+		super.testOnchooseyourcarPage_AD();
+	}
+	
+	@Test (dependsOnMethods= {"testOnchooseyourcarPage_AD"})
+	public void testOnyChauffeur_Notes() throws InterruptedException {
+		super.testOnyChauffeur_Notes();
+	}
+	@Test (dependsOnMethods= {"testOnyChauffeur_Notes"})
+	public void testOnyourRidePageGpay() throws InterruptedException {
+		super.testOnyourRidePageGpay();
+	}
+	
+	@Test (dependsOnMethods= {"testOnyourRidePageGpay"})
+	public void testOnHourlyselectDurationPage() throws InterruptedException {
+		super.testOnHourlyselectDurationPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyselectDurationPage"})
+	public void testOnpickupScreen() throws InterruptedException {
+		super.testOnpickupScreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnpickupScreen"})
+	public void testOnHourlysManageYourPage_AD() throws InterruptedException {
+		super.testOnHourlysManageYourPage_AD();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlysManageYourPage_AD"})
+	public void testOnexperiencefeedbackScreen() throws InterruptedException {
+		super.testOnexperiencefeedbackScreen();
+	}
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [MySuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="RunSelected(failed)">
+    <groups>
+      <run>
+        <include name="selected"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="ios.RG_rideNow">
+        <methods>
+          <include name="launchdiazabRideNowaddOnFlow"/>
+          <include name="launchdmRideNowchauffeurcancelFlow"/>
+        </methods>
+      </class> <!-- ios.RG_rideNow -->
+    </classes>
+  </test> <!-- RunSelected(failed) -->
+</suite> <!-- Failed suite [MySuite] -->

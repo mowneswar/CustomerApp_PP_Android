@@ -1,0 +1,171 @@
+package ios;
+
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class RG_Hourly extends customerapplaunch {
+	Launch_Hourly_DIA_T2_Cash duAirCash = new Launch_Hourly_DIA_T2_Cash();
+
+	Launch_Hourly_DM_FA_Card dm_FA_CardFlow = new Launch_Hourly_DM_FA_Card();
+
+	Launch_Hourly_OtherLoc_Apple du_Other_Loc_apple_Flow = new Launch_Hourly_OtherLoc_Apple();
+
+	Launch_Hourly_Abudhabi_Card abudhabi_GC_Card_Flow = new Launch_Hourly_Abudhabi_Card();
+
+	Launch_Hourly_ScheduleLater_StartTrip_Incomplete_DIA_T2_Cash  dia_T2_Cash_StattripIncom_PayNow_Flow = new Launch_Hourly_ScheduleLater_StartTrip_Incomplete_DIA_T2_Cash ();
+
+	Launch_Hourly_ScheduleLater_StatrTripEarly_DIA_T2_ApplePay dia_T2_StartripEarly_apple_Flow = new Launch_Hourly_ScheduleLater_StatrTripEarly_DIA_T2_ApplePay();
+
+	Launch_Hourly_ScheduleLater_DM_FA_Card  dm_FA__ScheduleLater_Card = new Launch_Hourly_ScheduleLater_DM_FA_Card();
+
+	Launch_Hourly_scheduleLater_AD_Cash  ad_FA__ScheduleLater_Cash = new Launch_Hourly_scheduleLater_AD_Cash();
+
+	Launch_Hourly_DM_Zab_ApplePay  dm_Zab_Apple_Flowm = new Launch_Hourly_DM_Zab_ApplePay();
+
+
+	@BeforeClass
+	public void Launch_setUp() throws MalformedURLException, InterruptedException {
+		super.setUp();
+		super.testOnLetsGoPage();
+		super.testOnLetsgetStartedexistAccntPage();
+		super.testOnOtpPage();
+		System.out.println("Case 1 Status: Application launched and login verified — customer is authenticated and on the home screen.");
+	}
+	
+	public void launch_dubaiAirportLoc_CashFlow()  throws InterruptedException {
+		duAirCash.testOnHomeScreenHourlyBtn();
+		duAirCash.testOnHomeScreenHourly_DIA_PickupFromPage();
+		duAirCash.testOnHomeScreenHourly_DIA_PickupTerminal2();
+		duAirCash.testOncAPUPage();
+		duAirCash.testOncarselectionPage();
+		duAirCash.testOnpaymentPageforcash();
+		duAirCash.testOnphourlySelectionPage();
+		duAirCash.testOnpickUpPage();
+		duAirCash.testOnWhereToPage();
+		duAirCash.testOnQuickFeedBackPage();
+		duAirCash.testOnFeedBackPage();
+		System.out.println("Case 2 Status: 'Hourly' journey flow validated.Slot : 1 Hour. Payment mode: Cash.Pickup point: Dubai International Airport Terminal 2. Add On stops: 3 ");
+		Thread.sleep(60000);
+	}
+	
+	public void launch_dm_FA_Loc_CardFlow()  throws InterruptedException {
+		dm_FA_CardFlow.testOnHomeScreenHourlyBtn();
+		dm_FA_CardFlow.testOnHomeScreenHourly_DM_PickupFromPage();
+		dm_FA_CardFlow.testOnHomeScreenHourly_DM_Pickup_FA_Parking();
+		dm_FA_CardFlow.testOncarselectionPage();
+		dm_FA_CardFlow.testOnChauffeurNotes();
+		dm_FA_CardFlow.testOnpaymentPageforcard();
+		dm_FA_CardFlow.testOnphourlySelectionPage();
+		dm_FA_CardFlow.testOnpickUpPage();
+		dm_FA_CardFlow.testOnWhereToPage();
+		dm_FA_CardFlow.testOnQuickFeedBackPage();
+		dm_FA_CardFlow.testOnFeedBackPage();
+		System.out.println("Case 3 Status: 'Hourly' journey flow validated. Slot : 1 Hour.  Payment mode: Card. Pickup point: Dubai Mall Fashion Avenue Parking. Add On stops: 3 ");
+		Thread.sleep(60000);
+	}
+	
+	public void launch_Du_Other_Loc_AppleFlow()  throws InterruptedException {
+		du_Other_Loc_apple_Flow.testOnHomeScreenHourlyBtn();
+		du_Other_Loc_apple_Flow.testOnHomeScreenHourlyPickupFromPage_Du_Others();
+		du_Other_Loc_apple_Flow.testOncarselectionPage();
+		du_Other_Loc_apple_Flow.testOnChauffeurNotes();
+		du_Other_Loc_apple_Flow.testOnpaymentPageforapplePay();
+		du_Other_Loc_apple_Flow.testOnphourlySelectionPage();
+		du_Other_Loc_apple_Flow.testOnpickUpPage();
+		du_Other_Loc_apple_Flow.testOnWhereToPage();
+		du_Other_Loc_apple_Flow.testOnQuickFeedBackPage();
+		du_Other_Loc_apple_Flow.testOnFeedBackPage();
+		System.out.println("Case 4 Status: 'Hourly' journey flow validated.  Slot : 1 Hour.  Payment mode: ApplePay.  Pickup point: Dubai Mall Fashion Avenue Parking. Add On stops: 3 ");
+		Thread.sleep(60000);
+	}
+	
+	public void launch_AbuLoc_CardFlow()  throws InterruptedException {
+		abudhabi_GC_Card_Flow.testOnHomeScreenHourlyBtn();
+		abudhabi_GC_Card_Flow.testOnHomeScreenHourlyPickupFromPage_AD();
+		abudhabi_GC_Card_Flow.testOncarselectionPage();
+		abudhabi_GC_Card_Flow.testOnChauffeurNotes();
+		abudhabi_GC_Card_Flow.testOnpaymentPageforcard();
+		abudhabi_GC_Card_Flow.testOnphourlySelectionPage();
+		abudhabi_GC_Card_Flow.testOnpickUpPage();
+		abudhabi_GC_Card_Flow.testOn_AD_WhereToPage();
+		abudhabi_GC_Card_Flow.testOnFeedBackPage();
+		System.out.println("Case 5 Status: 'Hourly' journey flow validated For Multi Cities.  Slot : 1 Hour.  Payment mode: Card.  Pickup point: Golf Club Abu Dhabi. Add On stops: 3 ");
+		Thread.sleep(60000);
+	}
+	@Test(groups = "selected")
+
+	public void launch_DiaLoc_StatTrip_Paynow_CashFlow()  throws InterruptedException {
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnHomeScreenHourly_ScheduleLaterBtn();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnHomeScreenHourly_DIA_PickupFromPage();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnHomeScreenHourly_DIA_PickupTerminal2();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOncAPUPage();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOncarselectionPage1();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnpaymentPageforcash();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnphourlySelectionPage();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnpickuppopUpBar();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnStartTripcancelbookingPage();
+		dia_T2_Cash_StattripIncom_PayNow_Flow.testOnPayNowPageApplePay();
+		System.out.println("Case 6 Status: 'Hourly' journey flow validated For Startrip Early Incomplete and Pending Payment.  Slot : 1 Hour.  Payment mode: Cash.  Pickup point: Dubai Airport Terminal 2 ");
+		Thread.sleep(60000);
+	}
+
+	@Test(groups = "selected")
+	public void launch_DiaLoc_StatTrip_Complete_AppleFlow()  throws InterruptedException {
+		dia_T2_StartripEarly_apple_Flow.testOnHomeScreenHourly_ScheduleLaterBtn();
+		dia_T2_StartripEarly_apple_Flow.testOnHomeScreenHourly_DIA_PickupFromPage();
+		dia_T2_StartripEarly_apple_Flow.testOnHomeScreenHourly_DIA_PickupTerminal2();
+		dia_T2_StartripEarly_apple_Flow.testOncAPUPage();
+		dia_T2_StartripEarly_apple_Flow.testOncarselectionPage1();
+		dia_T2_StartripEarly_apple_Flow.testOnpaymentPageforcash();
+		dia_T2_StartripEarly_apple_Flow.testOnphourlySelectionPage();
+		dia_T2_StartripEarly_apple_Flow.testOnpickuppopUpBar();
+		dia_T2_StartripEarly_apple_Flow.testOnStarttriEarlyBtn();
+		dia_T2_StartripEarly_apple_Flow.testOnpickUpPage();
+		dia_T2_StartripEarly_apple_Flow.testOnWhereToPage();
+		dia_T2_StartripEarly_apple_Flow.testOnQuickFeedBackPage();
+		dia_T2_StartripEarly_apple_Flow.testOnpickUpPage();
+
+		System.out.println("Case 7 Status: 'Hourly' journey flow validated For Startrip Early Complete Trip.  Slot : 1 Hour.  Payment mode: Apple Pay.  Pickup point: Dubai Airport Terminal 2. Add On stops: 3  ");
+		Thread.sleep(60000);
+	}
+	@Test(groups = "selected")
+	public void launch_DMLoc_SchduleLater_CardFlow()  throws InterruptedException {
+		dm_FA__ScheduleLater_Card .testOnHomeScreenHourlyBtn();
+		dm_FA__ScheduleLater_Card .testOnHomeScreenHourly_DM_PickupFromPage();
+		dm_FA__ScheduleLater_Card .testOnHomeScreenHourly_DM_Pickup_ZabeelParking() ;
+		dm_FA__ScheduleLater_Card .testOncarselectionPage();
+		dm_FA__ScheduleLater_Card .testOnpaymentPageforcard();
+		dm_FA__ScheduleLater_Card .testOnChauffeurNotes();
+		dm_FA__ScheduleLater_Card .testOnphourlySelectionPage();
+		dm_FA__ScheduleLater_Card .testOn_okBtnScheduleLater();
+		System.out.println("Case 8 Status: 'Hourly Schedule For Later' flow validated .  Slot : 1 Hour.  Payment mode: Card Pay.  Pickup point: Dubai Mall Zabeel Parking.");
+		Thread.sleep(60000);
+	}
+	@Test(groups = "selected")
+	public void launch_ADLoc_SchduleLater_CardFlow()  throws InterruptedException {
+		ad_FA__ScheduleLater_Cash .testOnHomeScreenHourlyBtn();
+		ad_FA__ScheduleLater_Cash .testOnHomeScreenHourlyPickupFromPage_AD();
+		ad_FA__ScheduleLater_Cash .testOncarselectionPage();
+		ad_FA__ScheduleLater_Cash .testOnpaymentPageforcash();
+		ad_FA__ScheduleLater_Cash .testOnChauffeurNotes();
+		ad_FA__ScheduleLater_Cash.testOnphourlySelectionPage();
+		ad_FA__ScheduleLater_Cash.testOn_okBtnScheduleLater();
+		System.out.println("Case 9 Status: 'Hourly Schedule For Later' flow validated .  Slot : 1 Hour.  Payment mode: Cash Pay.  Pickup point: Abu Dhabi Golf Club.");
+		Thread.sleep(60000);
+	}
+	@Test(groups = "selected")
+	public void launch_dm_Zab_Loc_AppleFlow()  throws InterruptedException {
+		dm_FA_CardFlow.testOnHomeScreenHourlyBtn();
+		dm_FA_CardFlow.testOnHomeScreenHourly_DM_PickupFromPage();
+		dm_FA_CardFlow.testOnHomeScreenHourly_DM_Pickup_ZabeelParking();
+		dm_FA_CardFlow.testOncarselectionPage();
+		dm_FA_CardFlow.testOnChauffeurNotes();
+		dm_FA_CardFlow.testOnpaymentPageforapplePay();
+		dm_FA_CardFlow.testOnphourlySelectionPage();
+		System.out.println("Case 10 Status: 'Hourly' journey flow  Cancelled by 'Chauffeur' validated. Slot : 1 Hour.  Payment mode: Apple. Pickup point: Dubai Mall Zabeel Parking.");
+		Thread.sleep(60000);
+	}
+}
+

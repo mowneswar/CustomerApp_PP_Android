@@ -1,0 +1,41 @@
+package English_Android_Customer;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class RideNow_RG_TestCases extends CustomerApp_English_BaseClass{
+	
+	
+	
+	
+	
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("✅ Case 1 : Customer app launch successful. User login and initial setup completed.");
+		Thread.sleep(50000);
+	}
+	
+	@Test
+		public void Launch_RideNow_ScheduleLater_AbuDhabi_Card() throws Exception {
+		Launch_RideNow_ScheduleLater_AbuDhabi_Card RideNow_SL_Abu_Card = new Launch_RideNow_ScheduleLater_AbuDhabi_Card();
+		RideNow_SL_Abu_Card.testOnscheduleLater();
+		RideNow_SL_Abu_Card.testScheduleLaterFlow();
+		RideNow_SL_Abu_Card.testOnWheretoPage_AD();
+		RideNow_SL_Abu_Card.testOnpickupPage();
+		RideNow_SL_Abu_Card.testOnchooseyourcarPage_AD();
+		RideNow_SL_Abu_Card.testOnyChauffeur_Notes();
+		RideNow_SL_Abu_Card.testOnyourRidePageCard();
+		RideNow_SL_Abu_Card.testOnOkschedulepage();
+		System.out.println("✅ Case 9 : RideNow ScheduleLater  booking validated — Customer successfully booked a ride from AbuDhabi Golf Club  By Card payment  Option.");
+		Thread.sleep(50000);
+	
+	
+	
+	}
+}

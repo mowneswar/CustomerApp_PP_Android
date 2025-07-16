@@ -1,0 +1,70 @@
+package Spanish_Lang;
+
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_ScheduleLater_StratTrip_Incomplete extends Customer_BaseClass_Spanish {
+	@BeforeClass
+    public void setUp() throws MalformedURLException, InterruptedException {
+		super.setUp();
+	}
+	@Test
+	public void testOnLetsGoPage() throws InterruptedException {
+		super.testOnLetsGoPage();
+	}
+	@Test(dependsOnMethods = {"testOnLetsGoPage"})
+	public void testOnLanguagePage() throws InterruptedException {
+		super.testOnLanguagePage();
+	}
+	@Test(dependsOnMethods = {"testOnLanguagePage"})
+	public void testOnLetsgetStartedexistAccntPage() throws InterruptedException {
+		super.testOnLetsgetStartedexistAccntPage();
+	}
+	@Test(dependsOnMethods = {"testOnLetsgetStartedexistAccntPage"})
+	public void testOnOtpPage() throws InterruptedException {
+		super.testOnOtpPage();
+	}
+	@Test(dependsOnMethods = {"testOnOtpPage"})
+	public void testOnHomeScreenHourly_ScheduleLaterBtn() throws InterruptedException {
+		super.testOnHomeScreenHourly_ScheduleLaterBtn();
+	}
+	@Test(dependsOnMethods = {"testOnHomeScreenHourly_ScheduleLaterBtn"})
+	public void testOnHomeScreenHourly_DIA_PickupFromPage() throws InterruptedException {
+		super.testOnHomeScreenHourly_DIA_PickupFromPage();
+	}
+	@Test(dependsOnMethods = {"testOnHomeScreenHourly_DIA_PickupFromPage"})
+	public void testOnHomeScreenHourly_DIA_PickupTerminal1() throws InterruptedException {
+		super.testOnHomeScreenHourly_DIA_PickupTerminal1();
+	}
+	@Test(dependsOnMethods = {"testOnHomeScreenHourly_DIA_PickupTerminal1"})
+	public void testOncAPUPage() throws InterruptedException {
+		super.testOncAPUPage();
+	}
+	@Test(dependsOnMethods = {"testOncAPUPage"})
+	 public void testOncarselectionPage1() throws InterruptedException {
+		super.testOncarselectionPage1();
+	}
+	@Test(dependsOnMethods = {"testOncarselectionPage1"})
+	public void testOnpaymentPageforcash() throws InterruptedException {
+		super.testOnpaymentPageforcash();
+	}
+	@Test(dependsOnMethods = {"testOnpaymentPageforcash"})
+	public void testOnphourlySelectionPage() throws InterruptedException {
+		super.testOnphourlySelectionPage();
+	}
+	@Test(dependsOnMethods = {"testOnphourlySelectionPage"})
+	public void testOnpickuppopUpBar() throws InterruptedException {
+		super.testOnpickuppopUpBar();	
+	}
+	@Test(dependsOnMethods = {"testOnpickuppopUpBar"})
+	public void testOnStartTripcancelbookingPage() throws InterruptedException {
+		super.testOnStartTripcancelbookingPage();
+	}
+	@Test(dependsOnMethods = {"testOnStartTripcancelbookingPage"})
+	public void testOnPayNowPageApplePay() throws InterruptedException {
+		super.testOnPayNowPageApplePay();
+	}
+}
+

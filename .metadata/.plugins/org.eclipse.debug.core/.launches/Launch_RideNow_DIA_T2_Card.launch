@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+    <mapAttribute key="org.eclipse.debug.core.environmentVariables"/>
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="customer-automation-tests"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
+        <mapEntry key="English_Android_Customer.Launch_RideNow_DIA_T2_Card" value="testOnLetsgetstartedPage;setUp;testOnRideNow_DAP_T2_Page;testOnexperiencefeedbackScreen;testOnpickupScreen;testOnRideNowHomescreen;testOnOTPlogin_Simu;testOnMapAllow;testOnquicfeedbackScreen;testOnIntroPage;testOnRideNowWheretoPage_DAP;testOnyourRidePageCard;testOnNotificAllow;testOnRideNow_DAP_APU_Page;testOnchooseyourcarPage"/>
+    </mapAttribute>
+    <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+        <listEntry value="English_Android_Customer.Launch_RideNow_DIA_T2_Card"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+    <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+    <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+    <intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

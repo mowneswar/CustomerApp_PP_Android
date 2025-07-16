@@ -1,0 +1,53 @@
+package English_Android_Customer;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Hourly_RG_TestCases  extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("✅ Case 1 : Customer app launch successful. User login and initial setup completed.");
+		Thread.sleep(50000);
+	}
+	@Test
+	public void Launch_Hourly_DIA_T1_Cash() throws Exception {
+		Launch_Hourly_DIA_T1_Cash Hourly_DIA_T1_Cash = new Launch_Hourly_DIA_T1_Cash();
+		Hourly_DIA_T1_Cash.testOnHourlyHomescreen();
+		Hourly_DIA_T1_Cash.testOnHourlyDIAHomeScreen();
+		Hourly_DIA_T1_Cash.testOnRideNow_DAP_T1_Page();
+		Hourly_DIA_T1_Cash.testOnRideNow_DAP_APU_Page();
+		Hourly_DIA_T1_Cash.testOnchooseyourcarPage();
+		Hourly_DIA_T1_Cash.testOnyourRidePageCash();
+		Hourly_DIA_T1_Cash.testOnHourlyselectDurationPage();
+		Hourly_DIA_T1_Cash.testOnpickupScreen();
+		Hourly_DIA_T1_Cash.testOnHourlysManageYourPage();
+		Hourly_DIA_T1_Cash.testOnquicfeedbackScreen();
+		Hourly_DIA_T1_Cash.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 2 : Hourly booking validated — Customer successfully booked a ride from Dubai airport Terminal 1 with 3 add on stops and completed the journey with cash payment.");
+		Thread.sleep(50000);
+		@Test
+		public void Launch_Hourly_DM_FA_Card() throws Exception {
+			Launch_Hourly_DM_FA_Card Hourly_DM_FA_Card = new Launch_Hourly_DM_FA_Card();
+			Hourly_DIA_T1_Cash.testOnHourlyHomescreen();
+			Hourly_DIA_T1_Cash.testOnHourlyDIAHomeScreen();
+			Hourly_DIA_T1_Cash.testOnRideNow_DAP_T1_Page();
+			Hourly_DIA_T1_Cash.testOnRideNow_DAP_APU_Page();
+			Hourly_DIA_T1_Cash.testOnchooseyourcarPage();
+			Hourly_DIA_T1_Cash.testOnyourRidePageCash();
+			Hourly_DIA_T1_Cash.testOnHourlyselectDurationPage();
+			Hourly_DIA_T1_Cash.testOnpickupScreen();
+			Hourly_DIA_T1_Cash.testOnHourlysManageYourPage();
+			Hourly_DIA_T1_Cash.testOnquicfeedbackScreen();
+			Hourly_DIA_T1_Cash.testOnexperiencefeedbackScreen();
+			System.out.println("✅ Case 2 : Hourly booking validated — Customer successfully booked a ride from Dubai airport Terminal 1 with 3 add on stops and completed the journey with cash payment.");
+			Thread.sleep(50000);
+	
+	
+	}
+}

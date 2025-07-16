@@ -1,0 +1,68 @@
+package English_Android_Customer;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_Others_Card_SorryPage extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void testOnsetUp() throws MalformedURLException, InterruptedException, Exception {
+		super.setUp();
+	}
+
+	@Test
+	public void testOnIntroPage() throws InterruptedException {
+		super.testIntroPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnIntroPage"})
+	public void testLetsgetstartedPage() throws InterruptedException {
+		super.testLetsgetstartedPage();
+	}
+	
+	@Test(dependsOnMethods= {"testLetsgetstartedPage"})
+	public void testOnOTPlogin_Simu() throws InterruptedException, IOException {
+		super.testOnOTPlogin_Simu();
+	}
+	
+	@Test(dependsOnMethods= {"testOnOTPlogin_Simu"})
+	public void testOnMapAllowPopup() throws InterruptedException {
+		super.testOnMapAllow();
+	}
+	
+	@Test(dependsOnMethods= {"testOnMapAllowPopup"})
+	public void testOnNotificAllowPopup() throws InterruptedException {
+		super.testOnNotificAllow();
+	}
+	
+	@Test(dependsOnMethods= {"testOnNotificAllowPopup"})
+	public void testOnHourlyHomescreen() throws InterruptedException {
+		super.testOnHourlyHomescreen();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyHomescreen"})
+	public void testOnHourlyOthersHomeScreen() throws InterruptedException {
+		super.testOnHourlyOthersHomeScreen();
+	}
+	@Test(dependsOnMethods= {"testOnHourlyOthersHomeScreen"})
+	public void testOnchooseyourcarPage() throws InterruptedException {
+		super.testOnchooseyourcarPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnchooseyourcarPage"})
+	public void testOnyourRidePageCard() throws InterruptedException {
+		super.testOnyourRidePageCard();
+	}
+	
+	@Test(dependsOnMethods= {"testOnyourRidePageCard"})
+	public void testOnHourlyselectDurationPage() throws InterruptedException {
+		super.testOnHourlyselectDurationPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnHourlyselectDurationPage"})
+	public void testOnHCantFindRidePage() throws InterruptedException {
+		super.testOnHCantFindRidePage();
+	}
+}

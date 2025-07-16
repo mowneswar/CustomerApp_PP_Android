@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression" >
+<test name="MoniicHourlyRegression" verbose="2">
+<classes>
+
+
+<class name="English_Android_Customer.Hourly_RG_TestCases"/>
+</classes>
+</test>
+<!--  Default test  -->
+</suite>
+<!--  Default suite  -->

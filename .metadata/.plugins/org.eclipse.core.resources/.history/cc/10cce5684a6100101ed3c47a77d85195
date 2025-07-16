@@ -1,0 +1,55 @@
+package English_Android_Customer;
+
+import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Hourly_RG_TestCases  extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("✅ Case 1 : Customer app launch successful. User login and initial setup completed.");
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS); 
+	}
+	
+	@Test(priority = 1)
+	public void Launch_Hourly_ScheduleLater_AITwar_Cash() throws Exception {
+		Launch_Hourly_ScheduleLater_Aitwar_Cash  Hourly_SL_AItwar_Cash = new Launch_Hourly_ScheduleLater_Aitwar_Cash();
+		Hourly_SL_AItwar_Cash.testOnHourlyscheduleLater();
+		Hourly_SL_AItwar_Cash.testScheduleLaterFlow();
+		Hourly_SL_AItwar_Cash.testOnHourlyOthersHomeScreen();
+		Hourly_SL_AItwar_Cash.testOnchooseyourcarPage();
+		Hourly_SL_AItwar_Cash.testOnyChauffeur_Notes();
+		Hourly_SL_AItwar_Cash.testOnyourRidePageCash();
+		Hourly_SL_AItwar_Cash.testOnHourlyselectDurationPage();
+		Hourly_SL_AItwar_Cash.testOnOkschedulepage();
+		System.out.println("✅ Case 10 : RideNow ScheduleLater  booking validated — Customer successfully booked a ride from AI Twar Centre  By Cash payment  Option.");
+		Thread.sleep(50000);
+
+
+
+	}
+	@Test(priority = 2)
+	public void Launch_Hourly_Others_SorryPage() throws Exception {
+		Launch_Hourly_Others_Card_SorryPage Hourly_others_Sorry = new Launch_Hourly_Others_Card_SorryPage();
+		Hourly_others_Sorry.testOnHourlyHomescreen();
+		Hourly_others_Sorry.testOnHourlyOthersHomeScreen();
+		Hourly_others_Sorry.testOnchooseyourcarPage();
+		Hourly_others_Sorry.testOnyChauffeur_Notes();
+		Hourly_others_Sorry.testOnyourRidePageCard();
+		Hourly_others_Sorry.testOnHourlyselectDurationPage();
+		Hourly_others_Sorry.testOnHCantFindRidePage();
+		System.out.println("✅ Case 11 : Hourly Chauffeur Cancels  booking validated — Customer successfully Recieved Sorry Cant Find Ride Message.");
+		Thread.sleep(50000);
+
+
+
+	}
+
+}

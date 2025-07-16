@@ -1,0 +1,95 @@
+package English_Android_Customer;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_ScheduleLater_DIA_T1_Cash extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void testOnAppLaunch() throws MalformedURLException, InterruptedException, Exception {
+		super.testOnAppLaunch();
+	}
+	
+	@Test
+	public void testOnIntroPage() throws InterruptedException {
+		super.testOnIntroPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnIntroPage"})
+	public void testOnselectArabicLang() throws InterruptedException {
+		super.testOnselectArabicLang();
+	}
+	
+	@Test(dependsOnMethods= {"testOnselectArabicLang"})
+	public void testonLetsgetstartedPage() throws InterruptedException {
+		super.testonLetsgetstartedPage();
+	}
+	
+	@Test(dependsOnMethods= {"testonLetsgetstartedPage"})
+	public void testOnOTPloginPage() throws InterruptedException, IOException {
+		super.testOnOTPloginPage();
+	}
+	
+	@Test(dependsOnMethods= {"testOnOTPloginPage"})
+	public void testOnMapAllowPopup() throws InterruptedException {
+		super.testOnMapAllowPopup();
+	}
+	
+	@Test(dependsOnMethods= {"testOnMapAllowPopup"})
+	public void testOnNotificAllowPopup() throws InterruptedException {
+		super.testOnNotificAllowPopup();
+	}
+	
+	@Test(dependsOnMethods= {"testOnNotificAllowPopup"})
+	public void testOnHourlyHomescreen() throws InterruptedException {
+		WebElement hourlyBtn = driver.findElement(By.xpath("(//android.widget.TextView[@index='0'])[2]"));
+		hourlyBtn.click();
+		Thread.sleep(3000);
+	}
+	
+	@Test (dependsOnMethods= {"testOnHourlyHomescreen"})
+	public void testOnscheduleLater() throws InterruptedException {
+		super.testOnscheduleLater();
+	}
+	
+	@Test (dependsOnMethods= {"testOnscheduleLater"})
+	public void testOnScheduleRide() throws InterruptedException {
+		super.testOnScheduleRide();
+
+	}
+	
+	@Test (dependsOnMethods= {"testOnScheduleRide"})
+	public void testOnHourlyDIAHomeScreen() throws InterruptedException {
+		super.testOnHourlyDIAHomeScreen();
+	}
+
+	
+	@Test (dependsOnMethods= {"testOnHourlyDIAHomeScreen"})
+	public void testOnHourlyTerm3PickupPage() throws InterruptedException {
+		super.testOnHourlyTerm3PickupPage();
+	}
+	
+	@Test (dependsOnMethods= {"testOnHourlyTerm3PickupPage"})
+	public void testOnRideNow_DAP_APU_Page() throws InterruptedException {
+		super.testOnRideNow_DAP_APU_Page();
+	}
+	
+	@Test (dependsOnMethods= {"testOnRideNow_DAP_APU_Page"})
+	public void testOnchooseyourcarPage() throws InterruptedException {
+		super.testOnchooseyourcarPage();
+	}
+	
+	@Test (dependsOnMethods= {"testOnchooseyourcarPage"})
+	public void testOnDIAyourRidePageGpay() throws InterruptedException {
+		super.testOnDIAyourRidePageGpay();
+	}
+	
+	@Test (dependsOnMethods= {"testOnDIAyourRidePageGpay"})
+	public void testOnHourlyselectDurationPage() throws InterruptedException {
+		super.testOnHourlyselectDurationPage();
+	}
+}

@@ -1,0 +1,209 @@
+package English_Android_Customer;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Hourly_RG_TestCases  extends CustomerApp_English_BaseClass{
+	@BeforeClass
+	public void setUp() throws Exception {
+		super.setUp();
+		super.testIntroPage();
+		super.testLetsgetstartedPage();
+		super.testOnOTPlogin_Simu();
+		super.testOnMapAllow();
+		super.testOnNotificAllow();
+		System.out.println("✅ Case 1 : Customer app launch successful. User login and initial setup completed.");
+		Thread.sleep(50000);
+	}
+	@Test
+	public void Launch_Hourly_DIA_T1_Cash() throws Exception {
+		Launch_Hourly_DIA_T1_Cash Hourly_DIA_T1_Cash = new Launch_Hourly_DIA_T1_Cash();
+		Hourly_DIA_T1_Cash.testOnHourlyHomescreen();
+		Hourly_DIA_T1_Cash.testOnHourlyDIAHomeScreen();
+		Hourly_DIA_T1_Cash.testOnRideNow_DAP_T1_Page();
+		Hourly_DIA_T1_Cash.testOnRideNow_DAP_APU_Page();
+		Hourly_DIA_T1_Cash.testOnchooseyourcarPage();
+		Hourly_DIA_T1_Cash.testOnyourRidePageCash();
+		Hourly_DIA_T1_Cash.testOnHourlyselectDurationPage();
+		Hourly_DIA_T1_Cash.testOnpickupScreen();
+		Hourly_DIA_T1_Cash.testOnHourlysManageYourPage();
+		Hourly_DIA_T1_Cash.testOnquicfeedbackScreen();
+		Hourly_DIA_T1_Cash.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 2 : Hourly booking validated — Customer successfully booked a ride from Dubai airport Terminal 1 with 3 add on stops and completed the journey with cash payment.");
+		Thread.sleep(50000);
+	}
+	@Test(dependsOnMethods= {"Launch_Hourly_DIA_T1_Cash"})
+	public void Launch_Hourly_DM_FA_Card() throws Exception {
+		Launch_Hourly_DM_FA_Card Hourly_DM_FA_Card = new Launch_Hourly_DM_FA_Card();
+		Hourly_DM_FA_Card.testOnHourlyHomescreen();
+		Hourly_DM_FA_Card.testOnHourlyDIAHomeScreen();
+		Hourly_DM_FA_Card.testOnHourlyPickupPageDubaiMall();
+		Hourly_DM_FA_Card.testOnDubaiMall_FashionAveParking();
+		Hourly_DM_FA_Card.testOnchooseyourcarPage();
+		Hourly_DM_FA_Card.testOnyChauffeur_Notes();
+		Hourly_DM_FA_Card.testOnyourRidePageCard();
+		Hourly_DM_FA_Card.testOnHourlyselectDurationPage();
+		Hourly_DM_FA_Card.testOnpickupScreen();
+		Hourly_DM_FA_Card.testOnHourlysManageYourPage();
+		Hourly_DM_FA_Card.testOnquicfeedbackScreen();
+		Hourly_DM_FA_Card.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 3 : Hourly booking validated — Customer successfully booked a ride from Dubai Mall Fashion Avenue with 3 add on stops and completed the journey with card payment.");
+		Thread.sleep(50000);
+
+
+	}
+	@Test(dependsOnMethods= {"Launch_Hourly_DM_FA_Card"})
+	public void Launch_Hourly_AD_Gpay() throws Exception {
+		Launch_Hourly_AbuDhbai_Gpay Hourly_AD_Gpay = new Launch_Hourly_AbuDhbai_Gpay();
+		Hourly_AD_Gpay.testOnHourlyHomescreen();
+		Hourly_AD_Gpay.testOnHourlyPickupPage_AbuDhabi();
+		Hourly_AD_Gpay.testOnchooseyourcarPage_AD();
+		Hourly_AD_Gpay.testOnyChauffeur_Notes();
+		Hourly_AD_Gpay.testOnyourRidePageGpay();
+		Hourly_AD_Gpay.testOnHourlyselectDurationPage();
+		Hourly_AD_Gpay.testOnpickupScreen();
+		Hourly_AD_Gpay.testOnHourlysManageYourPage_AD();
+		Hourly_AD_Gpay.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 4 : Hourly booking validated — Customer successfully booked a ride from AbuDhabi with 3 add on stops and completed the journey with Gpay payment.");
+		Thread.sleep(50000);
+
+
+	}
+
+
+	@Test(dependsOnMethods= {"Launch_Hourly_AD_Gpay"})
+	public void Launch_Hourly_twarecentre_Cash() throws Exception {
+		Launch_Hourly_twarcentre_Cash Hourly_tware_Cash = new Launch_Hourly_twarcentre_Cash();
+		Hourly_tware_Cash.testOnHourlyHomescreen();
+		Hourly_tware_Cash.testOnHourlyOthersHomeScreen();
+		Hourly_tware_Cash.testOnchooseyourcarPage();
+		Hourly_tware_Cash.testOnyChauffeur_Notes();
+		Hourly_tware_Cash.testOnyourRidePageCash();
+		Hourly_tware_Cash.testOnHourlyselectDurationPage();
+		Hourly_tware_Cash.testOnpickupScreen();
+		Hourly_tware_Cash.testOnHourlysManageYourPage();
+		Hourly_tware_Cash.testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 5 : Hourly booking validated — Customer successfully booked a ride from AI Twar Centre with 3 add on stops and completed the journey with Cash payment.");
+		Thread.sleep(50000);
+
+
+	}
+	@Test (dependsOnMethods= {"Launch_Hourly_twarecentre_Cash"})
+	public void Launch_Hourly_StartTripEarlyCan_DM_Zab_Gpay() throws Exception {
+		Launch_HY_SL_StartTripEarly_Cancel_PayNow_Gpay Hourly_STEarlyCan_Gpay = new Launch_HY_SL_StartTripEarly_Cancel_PayNow_Gpay();
+		Hourly_STEarlyCan_Gpay.testOnHourlyscheduleLater();
+		Hourly_STEarlyCan_Gpay.testScheduleLaterFlow();
+		Hourly_STEarlyCan_Gpay.testOnHourlyPickupPageDubaiMall();
+		Hourly_STEarlyCan_Gpay.testDubaiMall_zabeelParking();
+		Hourly_STEarlyCan_Gpay.testOnchooseyourcarPage();
+		Hourly_STEarlyCan_Gpay.testOnyChauffeur_Notes();
+		Hourly_STEarlyCan_Gpay.testOnyourRidePageCash();
+		Hourly_STEarlyCan_Gpay.testOnHourlyselectDurationPage();
+		Hourly_STEarlyCan_Gpay.testOnOkschedulepage();
+		Hourly_STEarlyCan_Gpay.testMinimizeAndMaximize();
+		Hourly_STEarlyCan_Gpay.testOnPickupPopup();
+		Hourly_STEarlyCan_Gpay.testOnstartTripEarlyPaymentIncomplete_PayByGpay() ;
+
+		System.out.println("✅ Case 6 : RideNow ScheduleLater StartTrip Early booking and Cancel Trip validated — Customer successfully booked a Start Trip Early ride and cancel  from Dubai  Mall Incomplete payment done by using gpay.");
+		Thread.sleep(80000);
+
+
+
+	}	
+
+	@Test 
+	public void Launch_Hourly_StartTripEarly_DM_FA_Card() throws Exception {
+		Launch_Hourly_ScheduleLater_StartTripEarly_DM_FA_Card Hourly_STEarly_Card = new Launch_Hourly_ScheduleLater_StartTripEarly_DM_FA_Card();
+		Hourly_STEarly_Card .testOnHourlyscheduleLater();
+		Hourly_STEarly_Card .testScheduleLaterFlow();
+		Hourly_STEarly_Card .testOnHourlyPickupPageDubaiMall();
+		Hourly_STEarly_Card .testOnDubaiMall_FashionAveParking();
+		Hourly_STEarly_Card .testOnchooseyourcarPage();
+		Hourly_STEarly_Card .testOnyChauffeur_Notes();
+		Hourly_STEarly_Card .testOnyourRidePageCard();
+		Hourly_STEarly_Card .testOnHourlyselectDurationPage();
+		Hourly_STEarly_Card .testOnOkschedulepage();
+		Hourly_STEarly_Card .testMinimizeAndMaximize();
+		Hourly_STEarly_Card .testOnPickupPopup();
+		Hourly_STEarly_Card .testOnstartTripEarlycomplete() ;
+		Hourly_STEarly_Card .testOnpickupScreen();
+		Hourly_STEarly_Card .testOnHourlysManageYourPage();
+		Hourly_STEarly_Card .testOnquicfeedbackScreen();
+		Hourly_STEarly_Card .testOnexperiencefeedbackScreen();
+		System.out.println("✅ Case 7 : RideNow ScheduleLater StartTrip Early booking and Complete Trip validated — Customer successfully booked a Start Trip Early ride and  with 3 add on stops and completed the journey with Card payment..");
+		Thread.sleep(80000);
+
+
+
+	}	
+	@Test 
+	public void Launch_Hourly_ScheduleLater_DM_DuLGL_Cash() throws Exception {
+		Launch_RideNow_ScheduleLater_DM_DuLGL_Cash Hourly_SL_DM_Cash = new Launch_RideNow_ScheduleLater_DM_DuLGL_Cash();
+		Hourly_SL_DM_Cash.testOnHourlyscheduleLater();
+		Hourly_SL_DM_Cash.testScheduleLaterFlow();
+		Hourly_SL_DM_Cash.testOnHourlyPickupPageDubaiMall();
+		Hourly_SL_DM_Cash.testOnDubaiMall_DuLGLevel();
+		Hourly_SL_DM_Cash.testOnchooseyourcarPage();
+		Hourly_SL_DM_Cash.testOnyChauffeur_Notes();
+		Hourly_SL_DM_Cash.testOnyourRidePageCash();
+		Hourly_SL_DM_Cash.testOnHourlyselectDurationPage();
+		Hourly_SL_DM_Cash.testOnOkschedulepage();
+		System.out.println("✅ Case 8 : Hourly ScheduleLater  booking validated — Customer successfully booked a ride from Dubai Mall Du Lower Ground  By Cash payment  Option.");
+		Thread.sleep(50000);
+
+
+
+	}
+	@Test 
+	public void Launch_Hourly_ScheduleLater_AbuDhabi_Gpay() throws Exception {
+		Launch_Hourly_ScheduleLater_AbuDhabi_Gpay  Hourly_SL_Abu_Gpay = new Launch_Hourly_ScheduleLater_AbuDhabi_Gpay ();
+		Hourly_SL_Abu_Gpay.testOnHourlyscheduleLater();
+		Hourly_SL_Abu_Gpay.testScheduleLaterFlow();
+		Hourly_SL_Abu_Gpay.testOnHourlyPickupPage_AbuDhabi();
+		Hourly_SL_Abu_Gpay.testOnchooseyourcarPage_AD();
+		Hourly_SL_Abu_Gpay.testOnyChauffeur_Notes();
+		Hourly_SL_Abu_Gpay.testOnyourRidePageGpay();
+		Hourly_SL_Abu_Gpay.testOnHourlyselectDurationPage();
+		Hourly_SL_Abu_Gpay.testOnOkschedulepage();
+		System.out.println("✅ Case 9 : RideNow ScheduleLater  booking validated — Customer successfully booked a ride from AbuDhabi Golf Club  By Gpay payment  Option.");
+		Thread.sleep(50000);
+
+
+
+	}
+
+	@Test 
+	public void Launch_Hourly_ScheduleLater_AITwar_Cash() throws Exception {
+		Launch_Hourly_ScheduleLater_Aitwar_Cash  Hourly_SL_AItwar_Cash = new Launch_Hourly_ScheduleLater_Aitwar_Cash();
+		Hourly_SL_AItwar_Cash.testOnHourlyscheduleLater();
+		Hourly_SL_AItwar_Cash.testScheduleLaterFlow();
+		Hourly_SL_AItwar_Cash.testOnHourlyPickupPage_AbuDhabi();
+		Hourly_SL_AItwar_Cash.testOnchooseyourcarPage();
+		Hourly_SL_AItwar_Cash.testOnyChauffeur_Notes();
+		Hourly_SL_AItwar_Cash.testOnyourRidePageCash();
+		Hourly_SL_AItwar_Cash.testOnHourlyselectDurationPage();
+		Hourly_SL_AItwar_Cash.testOnOkschedulepage();
+		System.out.println("✅ Case 10 : RideNow ScheduleLater  booking validated — Customer successfully booked a ride from AI Twar Centre  By Cash payment  Option.");
+		Thread.sleep(50000);
+
+
+
+	}
+	@Test 
+	public void Launch_Hourly_Others_SorryPage() throws Exception {
+		Launch_Hourly_Others_Card_SorryPage Hourly_others_Sorry = new Launch_Hourly_Others_Card_SorryPage();
+		Hourly_others_Sorry.testOnHourlyHomescreen();
+		Hourly_others_Sorry.testOnHourlyOthersHomeScreen();
+		Hourly_others_Sorry.testOnchooseyourcarPage();
+		Hourly_others_Sorry.testOnyChauffeur_Notes();
+		Hourly_others_Sorry.testOnyourRidePageCard();
+		Hourly_others_Sorry.testOnHourlyselectDurationPage();
+		Hourly_others_Sorry.testOnHCantFindRidePage();
+		System.out.println("✅ Case 11 : Hourly Chauffeur Cancels  booking validated — Customer successfully Recieved Sorry Cant Find Ride Message.");
+		Thread.sleep(50000);
+
+
+
+	}
+
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+    <mapAttribute key="org.eclipse.debug.core.environmentVariables"/>
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="mowneswar"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
+        <mapEntry key="French_Lang.Launch_Hourly_ScheduleLater_StartTripEarly" value="testOncarselectionPage1;testOnHomeScreenHourly_DIA_PickupTerminal2;testOnHomeScreenHourly_DIA_PickupFromPage;testOncAPUPage;testOnphourlySelectionPage;testOnStarttriEarlyBtn;testOnLetsgetStartedexistAccntPage;testOnLetsGoPage;testOnLanguagePage;testOnpickUpPage;testOnWhereToPage;testOnOtpPage;testOnHomeScreenHourly_ScheduleLaterBtn;testOnpickuppopUpBar;testOnpaymentPageforapplePay"/>
+    </mapAttribute>
+    <listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+        <listEntry value="French_Lang.Launch_Hourly_ScheduleLater_StartTripEarly"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.METHOD_TEST_LIST">
+        <listEntry value="testOncarselectionPage1"/>
+        <listEntry value="testOnHomeScreenHourly_DIA_PickupTerminal2"/>
+        <listEntry value="testOnHomeScreenHourly_DIA_PickupFromPage"/>
+        <listEntry value="testOncAPUPage"/>
+        <listEntry value="testOnphourlySelectionPage"/>
+        <listEntry value="testOnStarttriEarlyBtn"/>
+        <listEntry value="testOnLetsgetStartedexistAccntPage"/>
+        <listEntry value="testOnLetsGoPage"/>
+        <listEntry value="testOnLanguagePage"/>
+        <listEntry value="testOnpickUpPage"/>
+        <listEntry value="testOnWhereToPage"/>
+        <listEntry value="testOnOtpPage"/>
+        <listEntry value="testOnHomeScreenHourly_ScheduleLaterBtn"/>
+        <listEntry value="testOnpickuppopUpBar"/>
+        <listEntry value="testOnpaymentPageforapplePay"/>
+    </listAttribute>
+    <listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+    <stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+    <intAttribute key="org.testng.eclipse.TYPE" value="4"/>
+</launchConfiguration>

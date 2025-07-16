@@ -1,0 +1,69 @@
+package ios;
+
+import java.net.MalformedURLException;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Launch_Hourly_DIA_T2_Cash extends customerapplaunch{
+	@BeforeClass
+    public void setUp() throws MalformedURLException, InterruptedException {
+		super.setUp();
+	}
+	@Test
+	public void testOnLetsGoPage() throws InterruptedException {
+		super.testOnLetsGoPage();
+	}
+	@Test(dependsOnMethods = {"testOnLetsGoPage"})
+	public void testOnLetsgetStartedexistAccntPage() throws InterruptedException {
+		super.testOnLetsgetStartedexistAccntPage();
+	}
+	@Test(dependsOnMethods = {"testOnLetsgetStartedexistAccntPage"})
+	public void testOnOtpPage() throws InterruptedException {
+		super.testOnOtpPage();
+	}
+	@Test(dependsOnMethods = {"testOnOtpPage"})
+	public void testOnHomeScreenHourlyBtn() throws InterruptedException {
+		super.testOnHomeScreenHourlyBtn();
+	}
+	@Test(dependsOnMethods = {"testOnHomeScreenHourlyBtn"})
+	public void testOnHomeScreenHourly_DIA_PickupFromPage() throws InterruptedException {
+		super.testOnHomeScreenHourly_DIA_PickupFromPage();
+	}
+	@Test(dependsOnMethods = {"testOnHomeScreenHourly_DIA_PickupFromPage"})
+	public void testOnHomeScreenHourly_DIA_PickupTerminal2() throws InterruptedException {
+		super.testOnHomeScreenHourly_DIA_PickupTerminal2();
+	}
+	@Test(dependsOnMethods = {"testOnHomeScreenHourly_DIA_PickupTerminal2"})
+	public void testOncAPUPage() throws InterruptedException {
+		super.testOncAPUPage();
+	}
+	@Test(dependsOnMethods = {"testOncAPUPage"})
+	 public void testOncarselectionPage() throws InterruptedException {
+		super.testOncarselectionPage();
+	}
+	@Test(dependsOnMethods = {"testOncarselectionPage"})
+	 public void testOnpaymentPageforcash() throws InterruptedException {
+		super.testOnpaymentPageforcash();
+	}
+	@Test(dependsOnMethods = {"testOnpaymentPageforcash"})
+	public void testOnphourlySelectionPage() throws InterruptedException {
+		super.testOnphourlySelectionPage();
+	}
+	@Test(dependsOnMethods = {"testOnphourlySelectionPage"})
+	 public void testOnpickUpPage() throws InterruptedException {
+		 super.testOnpickUpPage();
+	 }
+	@Test(dependsOnMethods = {"testOnpickUpPage"})
+	 public void testOnWhereToPage() throws InterruptedException {
+		super.testOnWhereToPage();
+	}
+	@Test(dependsOnMethods = {"testOnWhereToPage"})
+	public void testOnQuickFeedBackPage() throws InterruptedException {
+		super.testOnQuickFeedBackPage();
+	}
+	@Test(dependsOnMethods = {"testOnQuickFeedBackPage"})
+	 public void testOnFeedBackPage() throws InterruptedException {
+		 super.testOnFeedBackPage();
+	 }
+}

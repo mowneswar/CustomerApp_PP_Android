@@ -41,11 +41,10 @@ public class CustomerApp_English_BaseClass {
 	    capabilities.setCapability("automationName", "UiAutomator2");
 	    capabilities.setCapability("newCommandTimeout", 600);
 	    capabilities.setCapability("dontStopAppOnReset", true);
-	    capabilities.setCapability("systemPort", 8230);
 	    capabilities.setCapability("appium:uiautomator2ServerInstallTimeout", 60000);
 	    capabilities.setCapability("appium:uiautomator2ServerLaunchTimeout", 60000);
 	    
-	    driver = new AppiumDriver<>(new URL("http://192.168.1.15:4723/"), capabilities);
+	    driver = new AppiumDriver<>(new URL("http://192.168.1.35:4725/customPath"), capabilities);
 	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	    
 	    System.out.println("CUSTOMER APP LAUNCHED SUCCESSFULLY");

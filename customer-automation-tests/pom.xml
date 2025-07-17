@@ -49,7 +49,7 @@
           </includes>
           <!-- Optional: Specify the TestNG XML suite file -->
           <suiteXmlFiles>
-  <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+  <suiteXmlFile>customer-automation-tests/src/test/resources/testng.xml</suiteXmlFile>
 </suiteXmlFiles>
         </configuration>
       </plugin>

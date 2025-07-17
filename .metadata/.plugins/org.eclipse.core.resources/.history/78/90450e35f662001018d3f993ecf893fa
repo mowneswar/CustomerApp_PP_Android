@@ -1,0 +1,934 @@
+package English_Android_Customer;
+import static java.time.Duration.ofMillis;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeClass;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+public class CustomerApp_English_BaseClass {
+	public static AppiumDriver<MobileElement> driver;
+
+	@BeforeClass
+	public void setUp() throws MalformedURLException, InterruptedException, Exception {
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+	    capabilities.setCapability("platformName", "Android");
+	    capabilities.setCapability("platformVersion", "15");
+	    capabilities.setCapability("deviceName", "emulator-5554");
+	    capabilities.setCapability("appPackage", "com.moniic.customer.pp");
+	    capabilities.setCapability("appActivity", "com.moniic.customer.MainActivity");
+	    capabilities.setCapability("automationName", "UiAutomator2");
+	    capabilities.setCapability("newCommandTimeout", 600);
+	    capabilities.setCapability("dontStopAppOnReset", true);
+	    capabilities.setCapability("appium:uiautomator2ServerInstallTimeout", 60000);
+	    capabilities.setCapability("appium:uiautomator2ServerLaunchTimeout", 60000);
+	    
+	    driver = new AppiumDriver<>(new URL("http://192.168.1.35:4725/"), capabilities);
+	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	    
+	    System.out.println("CUSTOMER APP LAUNCHED SUCCESSFULLY");
+	    Thread.sleep(8000);
+
+	}
+	public void testIntroPage() throws InterruptedException {
+		WebElement Letsgobtn=driver.findElement(By.xpath("(//android.widget.TextView[@index='1'])[1]"));
+		Letsgobtn.click();
+		Thread.sleep(3000);
+	}
+	public void testLetsgetstartedPage() throws InterruptedException {
+		WebElement cDropDownBtn= driver.findElement(By.xpath("//android.widget.TextView[@text=\"󰅀\"]"));
+		cDropDownBtn.click();
+		Thread.sleep(3000);
+		WebElement searchBlk= driver.findElement(By.xpath("//android.widget.EditText[@index='0' and @text='Search']"));
+		searchBlk.click();
+		Thread.sleep(3000);
+		searchBlk.sendKeys("91");
+		Thread.sleep(3000);
+		WebElement counWidget = driver.findElement(By.xpath("//android.widget.TextView[@text='India (+91)']"));
+		counWidget.click();
+		Thread.sleep(3000);
+		WebElement numBar = driver.findElement(By.xpath("//android.widget.EditText[@text='Enter Phone Number']"));
+		numBar.click();
+		Thread.sleep(3000);
+		numBar.sendKeys("9443527653");
+		Thread.sleep(8000);
+		WebElement prcdBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		prcdBtn.click();
+		Thread.sleep(6000);
+
+	}
+	public void testOnOTPlogin_Simu() throws InterruptedException, IOException {
+		
+		WebElement otpBox = driver.findElement(By.className("android.widget.EditText"));
+		otpBox.click(); // focus on OTP box
+		Thread.sleep(1000);
+
+		// ✅ Use your actual adb path here (replace with correct one)
+		String adbPath = "/Users/bgmac/Library/Android/sdk/platform-tools/adb";
+		String otp = "234876";
+		String deviceId = "emulator-5554";
+
+		// 💥 Construct ADB command
+		String adbCommand = adbPath + " -s " + deviceId + " shell input text " + otp;
+
+		// 🛠️ Run ADB command
+		Process process = Runtime.getRuntime().exec(adbCommand);
+		process.waitFor();
+
+		// ✅ Optional: Print any output/errors
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+		    String line;
+		    while ((line = reader.readLine()) != null) {
+		        System.out.println("ADB Output: " + line);
+		    }
+		}
+		try (BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()))) {
+		    String line;
+		    while ((line = errorReader.readLine()) != null) {
+		        System.err.println("ADB Error: " + line);
+		    }
+		}
+	}
+	
+	
+	public void testOnOTPlogin() throws InterruptedException, IOException {
+		WebElement otpNumBox1 = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0'])[19]"));
+		otpNumBox1.click();
+		Thread.sleep(1000);
+
+
+		String otp = "234876";
+		String deviceId = "ef06a48c";
+		sendOTP(otp, deviceId);
+		System.out.println("OTP Entered Successfully");
+		Thread.sleep(3000);
+	}
+	private void sendOTP(String otp, String deviceId) throws IOException, InterruptedException {
+		String adbCommand = "adb -s " + deviceId + " shell input text " + otp;
+		executeADBCommand(adbCommand);
+	}
+
+	private void executeADBCommand(String adbCommand) throws IOException, InterruptedException {
+		System.out.println("Executing adb command: " + adbCommand);
+		Process process = Runtime.getRuntime().exec(adbCommand);
+		process.waitFor();
+
+
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+			String line;
+			while ((line = reader.readLine()) != null) {
+				System.out.println("ADB Output: " + line);
+			}
+		}
+
+
+		try (BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()))) {
+			String line;
+			while ((line = errorReader.readLine()) != null) {
+				System.err.println("ADB Error: " + line);
+			}
+		}
+	}
+	public void testOnMapAllow() throws InterruptedException {
+		WebElement whileuseBtn = driver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button"));
+		whileuseBtn.click();
+		Thread.sleep(3000);
+
+	}
+	public void testOnNotificAllow() throws InterruptedException {
+		WebElement alwBtn = driver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_button"));
+		alwBtn.click();
+		Thread.sleep(10000);
+
+	}
+
+
+
+
+
+	/////////////////////RideNow////////////////////
+	public void testOnRideNowHomescreen() throws InterruptedException {
+		WebElement whereToBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Where To?']"));
+		whereToBtn.click();
+		Thread.sleep(3000);
+
+	}
+
+	public void testOnRideNowWheretoPage() throws InterruptedException {
+		WebElement yourcurrentLocBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[1]"));
+		yourcurrentLocBlk.click();
+
+		Thread.sleep(6000);
+		yourcurrentLocBlk.sendKeys("Bhurj Khalifa");
+		Thread.sleep(6000);
+		WebElement currentLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Burj Khalifa']"));
+		currentLocName.click();
+		Thread.sleep(3000);
+		WebElement destinationBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[2]"));
+		destinationBlk.click();
+		Thread.sleep(6000);
+		destinationBlk.sendKeys("Palm Jumeirah");
+		Thread.sleep(6000);
+		WebElement destinationLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Palm Jumeirah']"));
+		destinationLocName.click();
+		Thread.sleep(3000);
+
+
+
+	}
+	
+	
+	public void testOnWheretoPage_DubaiMall() throws InterruptedException {
+		WebElement yourcurrentLocBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[1]"));
+		yourcurrentLocBlk.click();
+		Thread.sleep(6000);
+		yourcurrentLocBlk.sendKeys("Dubai Mall");
+		Thread.sleep(6000);
+		WebElement currentLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Dubai Mall']"));
+		currentLocName.click();
+		Thread.sleep(3000);
+		WebElement destinationBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[2]"));
+		destinationBlk.click();
+		Thread.sleep(6000);
+		destinationBlk.sendKeys("Palm Jumeirah");
+		Thread.sleep(6000);
+		WebElement destinationLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Palm Jumeirah']"));
+		destinationLocName.click();
+		Thread.sleep(3000);
+
+	}
+	public void testOnDubaiMall_Cin_P3() throws InterruptedException {
+		WebElement locationArwBtn = driver.findElement(By.xpath("(//android.widget.TextView[@index='1'])[2]"));
+		locationArwBtn.click();
+		Thread.sleep(3000);
+		WebElement cinemaParkingBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Cinema Parking P3']"));
+		cinemaParkingBlk.click();
+		Thread.sleep(3000);
+		WebElement mallPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		mallPrcd.click();
+		Thread.sleep(3000);
+
+	}
+	public void testOnDubaiMall_FashionAveParking() throws InterruptedException {
+		WebElement locationArwBtn = driver.findElement(By.xpath("(//android.widget.TextView[@index='1'])[2]"));
+		locationArwBtn.click();
+		Thread.sleep(3000);
+		WebElement FashionAveParkingBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Fashion Avenue Parking']"));
+		FashionAveParkingBlk.click();
+		Thread.sleep(3000);
+		WebElement mallPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		mallPrcd.click();
+		Thread.sleep(3000);
+
+	}
+	public void testOnDubaiMall_DuLGLevel() throws InterruptedException {
+		WebElement locationArwBtn = driver.findElement(By.xpath("(//android.widget.TextView[@index='1'])[2]"));
+		locationArwBtn.click();
+		Thread.sleep(3000);
+		WebElement DuLGLevelBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Du - Lower Ground Level']"));
+		DuLGLevelBlk.click();
+		Thread.sleep(3000);
+		WebElement mallPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		mallPrcd.click();
+		Thread.sleep(3000);
+
+	}
+	public void testDubaiMall_zabeelParking() throws InterruptedException {
+		WebElement locationArwBtn = driver.findElement(By.xpath("(//android.widget.TextView[@index='1'])[2]"));
+		locationArwBtn.click();
+		Thread.sleep(3000);
+		WebElement zabeelParkingBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Zabeel Parking']"));
+		zabeelParkingBlk.click();
+		Thread.sleep(3000);
+		WebElement mallPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		mallPrcd.click();
+		Thread.sleep(8000);
+
+	}
+	
+
+
+	public void testOnRideNowWheretoPage_DAP() throws InterruptedException {
+		WebElement yourcurrentLocBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[1]"));
+		yourcurrentLocBlk.click();
+		Thread.sleep(6000);
+		yourcurrentLocBlk.sendKeys("Dubai International Airport (DXB)");
+		Thread.sleep(6000);
+		WebElement currentLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Dubai International Airport (DXB)']"));
+		currentLocName.click();
+		Thread.sleep(3000);
+		WebElement destinationBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[2]"));
+		destinationBlk.click();
+		Thread.sleep(6000);
+		destinationBlk.sendKeys("Palm Jumeirah");
+		Thread.sleep(6000);
+		WebElement destinationLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Palm Jumeirah']"));
+		destinationLocName.click();
+		Thread.sleep(3000);
+
+
+
+	}
+	public void testOnRideNow_DAP_T1_Page() throws InterruptedException {
+		WebElement dropDownArwBtn = driver.findElement(By.xpath("//android.widget.TextView[@text=\"\"]"));
+		dropDownArwBtn.click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='DXB Arrival - Terminal 1']")).click();
+		Thread.sleep(5000);
+		
+		WebElement terminalPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		terminalPrcd.click();
+		Thread.sleep(3000);
+	}
+	public void testOnRideNow_DAP_T2_Page() throws InterruptedException {
+		WebElement dropDownArwBtn = driver.findElement(By.xpath("//android.widget.TextView[@text=\"\"]"));
+		dropDownArwBtn.click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='DXB Arrival - Terminal 2']")).click();
+		Thread.sleep(5000);
+		WebElement terminalPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		terminalPrcd.click();
+		Thread.sleep(3000);
+
+	}
+	public void testOnRideNow_DAP_T3_Page() throws InterruptedException {
+		WebElement dropDownArwBtn = driver.findElement(By.xpath("//android.widget.TextView[@text=\"\"]"));
+		dropDownArwBtn.click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='DXB Arrival - Terminal 3']")).click();
+		Thread.sleep(5000);
+		
+		WebElement terminalPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		terminalPrcd.click();
+		Thread.sleep(3000);
+	}
+	
+	public void testOnWheretoPage_AD() throws InterruptedException {
+		WebElement yourcurrentLocBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[1]"));
+		yourcurrentLocBlk.click();
+
+		Thread.sleep(6000);
+		yourcurrentLocBlk.sendKeys("Abu Dhabi Golf Club");
+		Thread.sleep(6000);
+		WebElement currentLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Abu Dhabi Golf Club']"));
+		currentLocName.click();
+		Thread.sleep(3000);
+		WebElement destinationBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[2]"));
+		destinationBlk.click();
+		Thread.sleep(6000);
+		destinationBlk.sendKeys("Delmaparkabudhabi");
+		Thread.sleep(6000);
+		WebElement destinationLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Delma Park']"));
+		destinationLocName.click();
+		Thread.sleep(3000);
+	}
+	public void testOnWheretoPage_LA() throws InterruptedException {
+		WebElement yourcurrentLocBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[1]"));
+		yourcurrentLocBlk.click();
+
+		Thread.sleep(6000);
+		yourcurrentLocBlk.sendKeys("Littletokyo");
+		Thread.sleep(6000);
+		WebElement currentLocName = driver.findElement(By.xpath("//android.widget.TextView[@text='Little Tokyo']"));
+		currentLocName.click();
+		Thread.sleep(3000);
+		WebElement destinationBlk = driver.findElement(By.xpath("(//android.widget.EditText[@index='0'])[2]"));
+		destinationBlk.click();
+		Thread.sleep(6000);
+		destinationBlk.sendKeys("Fashiondistrict");
+		Thread.sleep(6000);
+		WebElement destinationLocName = driver.findElement(By.xpath("(//android.widget.TextView[@text='Fashion District'])[1]"));
+		destinationLocName.click();
+		Thread.sleep(3000);
+	}
+	
+	/////////////////// RideNowScheduleLater//////////////
+	public void testScheduleLaterFlow() throws InterruptedException {
+		WebElement schlatPrcdBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		schlatPrcdBtn.click();
+		Thread.sleep(3000);
+	}
+	
+	
+	public void testOnRideNow_DAP_APU_Page() throws InterruptedException {
+		WebElement apuBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='ADD PICK UP NOTES']"));
+		apuBtn.click();
+		Thread.sleep(3000);
+		WebElement flightnumBlk = driver.findElement(By.xpath("//android.widget.EditText[@text='Enter your flight number']"));
+		flightnumBlk.click();
+		Thread.sleep(3000);
+		flightnumBlk.sendKeys("Boeing 737");
+		Thread.sleep(3000);
+
+
+		WebElement travelerNameBlk = driver.findElement(By.xpath("//android.widget.EditText[@text='Enter the traveler name']"));
+		travelerNameBlk.click();
+		Thread.sleep(3000);
+		travelerNameBlk.sendKeys("George Muthu Pnadian");
+		Thread.sleep(3000);
+
+		WebElement otherNoteBlk = driver.findElement(By.xpath("//android.widget.EditText[@text='Eg: I need a child seat, I need help with my bags...']"));
+		 otherNoteBlk.click();
+		Thread.sleep(3000);
+		 otherNoteBlk.sendKeys("George Muthu Pnadian needs a paneer tikka during travel");
+		Thread.sleep(3000);
+
+
+		WebElement conBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='CONTINUE']"));
+		conBtn.click();
+		Thread.sleep(5000);
+
+	}
+	public void testOnpickupPage() throws InterruptedException {
+
+		WebElement pickupProceedBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		pickupProceedBtn.click();
+		Thread.sleep(8000);
+
+
+	}
+	public void testOnchooseyourcarPage() throws InterruptedException {
+
+		WebElement classBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='0' and @text='First Class']"));
+		classBtn.click();
+		Thread.sleep(5000);
+
+
+	}
+	public void testOnchooseyourcarPage_AD() throws InterruptedException {
+
+		WebElement classBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='royal class 999']"));
+		classBtn.click();
+		Thread.sleep(5000);
+
+
+	}
+	public void testOnchooseyourcarPage_LA() throws InterruptedException {
+
+		WebElement classBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Benz cat']"));
+		classBtn.click();
+		Thread.sleep(5000);
+
+
+	}
+	
+	public void testOnyChauffeur_Notes() throws InterruptedException {
+	WebElement addNotesBtn2 = driver.findElement(By.xpath("//android.widget.TextView[@text='Add Notes']"));
+	addNotesBtn2.click();
+	Thread.sleep(6000);
+	WebElement yourNotesBlk2 = driver.findElement(By.xpath("//android.widget.EditText[@index='0' and @text='Eg: My Flight number is EK 5234, I need a child seat, I need help with my bags.']"));
+	yourNotesBlk2.click();
+	Thread.sleep(6000);
+	yourNotesBlk2.sendKeys(" I need Pet Carrier as well as a Paneer tikka during travel");
+	Thread.sleep(3000);
+	WebElement addNotesproceedBtn2 = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+	addNotesproceedBtn2.click();
+	Thread.sleep(6000);
+	}
+
+	public void testOnyourRidePageCard() throws InterruptedException {
+		WebElement paymentBtn2 = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.view.TextureView)[5]"));
+		paymentBtn2.click();
+		Thread.sleep(3000);
+		WebElement selectpaymentBtn2 = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='**** **** **** 4444']"));
+		selectpaymentBtn2 .click();
+		Thread.sleep(3000);
+
+		WebElement confirmcardpaymentBtn2 = driver.findElement(By.xpath("//android.widget.TextView[@text='CONFIRM']"));
+		confirmcardpaymentBtn2.click();
+		Thread.sleep(10000);
+
+		
+		WebElement bookClassBtn2 = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.view.TextureView)[6]"));
+		bookClassBtn2.click();
+		Thread.sleep(15000);
+
+	}
+	public void testOnyourRidePageCash() throws InterruptedException {
+		WebElement paymentBtn = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.view.TextureView)[5]"));
+		paymentBtn.click();
+		Thread.sleep(3000);
+		WebElement cashpaymentBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='Cash']"));
+		cashpaymentBtn .click();
+		Thread.sleep(3000);
+		WebElement confirmcashpaymentBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='CONFIRM']"));
+		confirmcashpaymentBtn.click();
+		Thread.sleep(3000);
+		WebElement bookFirstClassBtn = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.view.TextureView)[6]"));
+		bookFirstClassBtn.click();
+		Thread.sleep(15000);
+
+	}
+	public void testOnyourRidePageGpay() throws InterruptedException {
+		WebElement paymentBtn3 = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.view.TextureView)[5]"));
+		paymentBtn3.click();
+		Thread.sleep(3000);
+		WebElement selectpaymentBtn3 = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='**** **** **** 4242']"));
+		selectpaymentBtn3 .click();
+		Thread.sleep(3000);
+
+		WebElement confirmgpaypaymentBtn3 = driver.findElement(By.xpath("//android.widget.TextView[@text='CONFIRM']"));
+		confirmgpaypaymentBtn3.click();
+		Thread.sleep(3000);
+		WebElement bookFirstClassBtn = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.view.TextureView)[6]"));
+		bookFirstClassBtn.click();
+		Thread.sleep(15000);
+
+	}
+	public void testOnpickupScreen() throws InterruptedException {
+		WebElement yourOTP = driver.findElement(By.xpath("//android.widget.TextView[@index='0' and @text='Your OTP']"));
+		yourOTP.click();
+		 driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
+	}
+	public void testOnquicfeedbackScreen() throws InterruptedException {
+		driver.findElement(By.xpath("(//android.widget.TextView[@text='NO'])[1]")).click();
+		Thread.sleep(6000);
+		driver.findElement(By.xpath("(//android.widget.TextView[@text='YES'])[2]")).click();
+		Thread.sleep(6000);
+		WebElement submitfeedbackBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='SUBMIT FEEDBACK']"));
+		submitfeedbackBtn.click();
+		Thread.sleep(6000);
+
+	}
+	public void testOnexperiencefeedbackScreen() throws InterruptedException {
+
+
+
+		WebElement threestarBtn = driver.findElement(By.xpath("//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[5]"));
+		threestarBtn.click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//android.widget.EditText[@text='Leave a comment (optional)']")).sendKeys("Nice ride!");
+		Thread.sleep(9000);
+		WebElement submitfeedbackBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='SUBMIT FEEDBACK']"));
+		submitfeedbackBtn.click();
+		Thread.sleep(6000);
+
+
+	}
+/////////////////////RideNow Cash Pending payement////////////////////
+	public void testOnPaymentIncomplete() throws InterruptedException {
+
+		WebElement scrollupsheet = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.widget.TextView[@index='0'])[4]"));
+		scrollupsheet .click();
+		Thread.sleep(6000);
+		WebElement cancelBookingBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Cancel Booking']"));
+		cancelBookingBtn.click();
+		Thread.sleep(3000);
+		WebElement cancelBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='YES, CANCEL']"));
+		cancelBtn.click();
+		Thread.sleep(6000);
+		WebElement cancelrea2Btn = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0'])[33]"));
+		cancelrea2Btn.click();
+		Thread.sleep(6000);
+		WebElement canceltripBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='CANCEL TRIP']"));
+		canceltripBtn.click();
+		Thread.sleep(6000);
+		WebElement payNowBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='PAY NOW']"));
+		payNowBtn.click();
+		Thread.sleep(3000);
+		WebElement  payNowGpay  = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0']/android.widget.TextView[@index='1'])[3]"));
+		payNowGpay.click();
+		Thread.sleep(3000);
+		WebElement  confirmGpay  = driver.findElement(By.xpath("//android.widget.TextView[@index='0' and @text='CONFIRM']"));
+		confirmGpay.click();
+		Thread.sleep(3000);
+
+	}
+
+
+/////////////////////RideNow Add On Stops////////////////////
+	public void testOnRideNowAddOnStops() throws InterruptedException {
+		driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc='']")).click();
+		Thread.sleep(6000);
+		
+		
+		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		Sequence swipe = new Sequence(finger, 1);
+
+		int startX = 548;  // adjust based on your screen
+		int startY = 1878;
+		int endY = 947;
+
+		swipe.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+		swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		swipe.addAction(finger.createPointerMove(ofMillis(500), PointerInput.Origin.viewport(), startX, endY));
+		swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+		driver.perform(List.of(swipe));
+		Thread.sleep(6000);
+	
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Manage Your Route.']")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("Tap to add a Stop")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().className('android.widget.EditText').index(0)")).sendKeys("Dubaiwaterfront");
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("Dubai Waterfront, United Arab Emirates")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("Tap to add a Stop")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().className('android.widget.EditText').index(0)")).sendKeys("Museum of the future");
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("Museum of The Future, Sheikh Zayed Road - Dubai - United Arab Emirates")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("Tap to add a Stop")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().className('android.widget.EditText').index(0)")).sendKeys("DubaiAquarium");
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("Museum of The Future, Sheikh Zayed Road - Dubai - United Arab Emirates")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AccessibilityId("UPDATE ROUTE")).click();
+		Thread.sleep(6000);
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().text('CONFIRM')")).click();
+		Thread.sleep(60000);
+	}
+	//////////// RideNow Sorry we cant find ride page///////
+	public void testOnHCantFindRidePage() throws InterruptedException {
+		boolean isNoRideShown = driver.findElement(
+			    By.xpath("//android.widget.TextView[@text='Sorry! We couldn’t find a ride for you.']")
+			).isDisplayed();
+
+			if (isNoRideShown) {
+			    System.out.println("⚠️ Ride search failed — No ride available.");
+			}
+	}
+
+
+
+	//////////////Hourly/////////////////
+
+
+	public void testOnHourlyHomescreen() throws InterruptedException {
+		WebElement hourlyBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='HOURLY']"));
+		hourlyBtn.click();
+		Thread.sleep(5000);
+		WebElement PickupfromBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='0' and @text='Pick up from?']"));
+		PickupfromBtn.click();
+		Thread.sleep(5000);
+
+	}
+	public void testOnHourlyDIAHomeScreen() throws InterruptedException {
+		WebElement currentLocBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Current Location']"));
+		currentLocBlk.click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Dubai International Airport (DXB)");
+		Thread.sleep(10000);
+	    driver.findElement(By.xpath("//android.widget.TextView[@text='Dubai International Airport (DXB)']")).click();
+		Thread.sleep(8000);
+	}
+	public void testOnHourlyOthersHomeScreen() throws InterruptedException {
+		WebElement currentLocBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Current Location']"));
+		currentLocBlk.click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("AI Twar Centre");
+		Thread.sleep(10000);
+	    driver.findElement(By.xpath("//android.widget.TextView[@text=\"Al Twar Centre\"]")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']")).click();
+		Thread.sleep(3000);
+	}
+
+//////////// Schedule Later hourly?/////////////////
+	public void testOnHourlyscheduleLater() throws InterruptedException {
+		
+		WebElement hourlyBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='HOURLY']"));
+		hourlyBtn.click();
+		Thread.sleep(5000);
+		
+		WebElement schedulelaterBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Schedule for Later']"));
+		schedulelaterBtn .click();
+		Thread.sleep(5000);
+		}
+
+	public void testOnHourlyPickupPage() throws InterruptedException {
+
+
+		WebElement proceedBtn = driver.findElement(By.xpath("(//android.view.View[@index='0'])[3]"));
+		proceedBtn.click();
+		Thread.sleep(5000);
+
+
+
+	}
+	public void testOnHourlyPickupPageDubaiMall() throws InterruptedException {
+		WebElement currentLocBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Current Location']"));
+		currentLocBlk.click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Dubai Mall");
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Dubai Mall']")).click();
+		Thread.sleep(10000);
+	}
+	public void testOnHourlyDubaiMallPage() throws InterruptedException {
+		WebElement mallPrcd = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+		mallPrcd.click();
+		Thread.sleep(3000);
+	}
+	//////// 2 Hour slot selection
+	public void testOnHourlyselectDurationPage() throws InterruptedException {
+
+		driver.findElement(By.xpath("//android.widget.TextView[@text=\"2 hours \"]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//android.view.ViewGroup/android.view.TextureView)[4]")).click();
+		Thread.sleep(5000);
+	}
+	public void testOnHourlysManageYourPage() throws InterruptedException {
+
+
+
+		driver.findElement(By.xpath("//android.widget.TextView[contains(@text, 'Where To')]")).click();
+		Thread.sleep(6000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+		Thread.sleep(8000);
+        driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Dubai waterfront");
+		Thread.sleep(8000);
+		driver.findElement(MobileBy.AccessibilityId("Dubai Waterfront, United Arab Emirates")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Palm Jumeirah");
+		Thread.sleep(8000);
+		driver.findElement(MobileBy.AccessibilityId("Palm Jumeirah, Dubai - United Arab Emirates")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Museum of The Future");
+		Thread.sleep(8000);
+		driver.findElement(MobileBy.AccessibilityId("Museum of The Future, Sheikh Zayed Road - Dubai - United Arab Emirates")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='UPDATE ROUTE']")).click();
+		Thread.sleep(50000);
+		driver.findElement(By.xpath("//android.widget.TextView[contains(@text, 'Where To')]")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Dubai aquarium");
+		Thread.sleep(8000);
+		driver.findElement(MobileBy.AccessibilityId("Dubai Aquarium & Underwater Zoo, Dubai - United Arab Emirates")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//android.widget.TextView[@text='UPDATE ROUTE']")).click();
+		Thread.sleep(30000);
+
+
+	}
+	public void scrollToPickerText(String text, String containerId) {
+	    driver.findElement(MobileBy.AndroidUIAutomator(
+	        "new UiScrollable(new UiSelector().resourceId(\"" + containerId + "\"))" +
+	        ".setMaxSearchSwipes(20)" +
+	        ".scrollIntoView(new UiSelector().text(\"" + text + "\"))"
+	    ));
+	}
+
+	/////////////////////////// ridenow schedule for later/////////////////////////////
+	public void testOnscheduleLater() throws InterruptedException {
+	WebElement schedulelaterBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Schedule for Later']"));
+	schedulelaterBtn .click();
+	Thread.sleep(3000);
+	}
+public void testOnScheduleRide (int startX, int startY, int endX, int endY) throws InterruptedException {
+	PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+    Sequence swipe = new Sequence(finger, 1);
+
+    // Press
+    swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+    swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+    // Move
+    swipe.addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), endX, endY));
+
+    // Release
+    swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+    driver.perform(Collections.singletonList(swipe));
+    
+    Thread.sleep(3000);
+	WebElement prcdBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']"));
+	prcdBtn.click();
+	Thread.sleep(3000);
+		
+	}
+
+public void testOnOkschedulepage() throws InterruptedException {
+	WebElement okBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='OK']"));
+	okBtn .click();
+	Thread.sleep(30000);
+
+
+}
+
+
+
+/////////////////////////////////////////RideNow ScheduleLater Pending Payment////////////////////////////////////////////////
+public void testOnPickupPopup() throws InterruptedException {
+	driver.findElement(By.xpath("//android.widget.TextView[@text='PICK UP AT']")).click();
+	Thread.sleep(3000);
+
+}
+
+public void testMinimizeAndMaximize() throws InterruptedException {
+    // Minimize the app
+    driver.runAppInBackground(Duration.ofSeconds(5));  // Minimize the app indefinitely
+    System.out.println("App minimized");
+
+    // Wait for a few seconds
+    Thread.sleep(3000);
+
+    // Maximize (bring the app back to foreground)
+    driver.activateApp("com.moniic.customer.pp");  // Relaunch the app to foreground
+    System.out.println("App maximized (back to foreground)");
+
+    // Continue with further actions, if needed
+    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+
+}
+public void testOnstartTripEarlyPaymentIncomplete_PayByGpay() throws InterruptedException {
+	driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc='']")).click();
+	Thread.sleep(6000);
+	
+	
+	PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+	Sequence swipe = new Sequence(finger, 1);
+
+	int startX = 548;  // adjust based on your screen
+	int startY = 1878;
+	int endY = 947;
+
+	swipe.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+	swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+	swipe.addAction(finger.createPointerMove(ofMillis(500), PointerInput.Origin.viewport(), startX, endY));
+	swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+	driver.perform(List.of(swipe));
+	
+	Thread.sleep(6000);
+	WebElement starttripBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='Start Trip Early?']"));
+	starttripBtn.click();
+	Thread.sleep(6000);
+	WebElement readystartBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='YES']"));
+	readystartBtn.click();
+	Thread.sleep(8000);
+
+	WebElement cancelBookingBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='Cancel Booking']"));
+	cancelBookingBtn.click();
+	Thread.sleep(3000);
+	WebElement cancelBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='YES, CANCEL']"));
+	cancelBtn.click();
+	Thread.sleep(6000);
+	WebElement cancelrea2Btn = driver.findElement(By.xpath("(//android.view.ViewGroup[@index='0'])[30]"));
+	cancelrea2Btn.click();
+	Thread.sleep(6000);
+	WebElement canceltripBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='CANCEL TRIP']"));
+	canceltripBtn.click();
+	Thread.sleep(6000);
+	WebElement payNowBtn = driver.findElement(By.xpath("//android.widget.TextView[@text='PAY NOW']"));
+	payNowBtn.click();
+	Thread.sleep(3000);
+	WebElement  payNowGpay  = driver.findElement(By.xpath("(//android.widget.TextView[@index='1'])[2]"));
+	payNowGpay.click();
+	Thread.sleep(3000);
+	WebElement  confirmGpay  = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='CONFIRM']"));
+	confirmGpay.click();
+	Thread.sleep(3000);
+}
+public void testOnstartTripEarlycomplete() throws InterruptedException {
+	driver.findElement(By.xpath("//android.view.ViewGroup[@content-desc='']")).click();
+	Thread.sleep(6000);
+	
+	
+	PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+	Sequence swipe = new Sequence(finger, 1);
+
+	int startX = 548;  // adjust based on your screen
+	int startY = 1878;
+	int endY = 947;
+
+	swipe.addAction(finger.createPointerMove(ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+	swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+	swipe.addAction(finger.createPointerMove(ofMillis(500), PointerInput.Origin.viewport(), startX, endY));
+	swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+	driver.perform(List.of(swipe));
+	
+	Thread.sleep(6000);
+	WebElement starttripBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='Start Trip Early?']"));
+	starttripBtn.click();
+	Thread.sleep(6000);
+	WebElement readystartBtn = driver.findElement(By.xpath("//android.widget.TextView[@index='1' and @text='YES']"));
+	readystartBtn.click();
+	Thread.sleep(30000);
+	}
+
+
+/////////////  Hourly Multi city///////////////////
+public void testOnHourlyPickupPage_AbuDhabi() throws InterruptedException {
+	WebElement currentLocBlk = driver.findElement(By.xpath("//android.widget.TextView[@text='Current Location']"));
+	currentLocBlk.click();
+	Thread.sleep(8000);
+	driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Abu Dhabi Golf Club");
+	Thread.sleep(8000);
+    driver.findElement(By.xpath("//android.widget.TextView[@text='Abu Dhabi Golf Club']")).click();
+    Thread.sleep(8000);
+    driver.findElement(By.xpath("//android.widget.TextView[@text='PROCEED']")).click();
+	Thread.sleep(3000);
+}
+public void testOnHourlysManageYourPage_AD() throws InterruptedException {
+
+
+
+	driver.findElement(By.xpath("//android.widget.TextView[contains(@text, 'Where To')]")).click();
+	Thread.sleep(6000);
+	driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+	Thread.sleep(5000);
+    driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Khalifa Park Library");
+	Thread.sleep(5000);
+	driver.findElement(MobileBy.AccessibilityId("Khalifa Park Library, Abu Dhabi - United Arab Emirates")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Samaliyah Island");
+	Thread.sleep(5000);
+	driver.findElement(MobileBy.AccessibilityId("Samaliyah Island, Abu Dhabi - United Arab Emirates")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Mangrove Marine National Park");
+	Thread.sleep(5000);
+	driver.findElement(MobileBy.AccessibilityId("Mangrove Marine National Park, Abu Dhabi - United Arab Emirates")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.TextView[@text='UPDATE ROUTE']")).click();
+	Thread.sleep(50000);
+	driver.findElement(By.xpath("//android.widget.TextView[contains(@text, 'Where To')]")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.TextView[@text='Tap to add a Stop']")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).sendKeys("Emirates Palace Mandarin Oriental");
+	Thread.sleep(5000);
+	driver.findElement(MobileBy.AccessibilityId("Emirates Palace Mandarin Oriental, West Corniche Road - Abu Dhabi - United Arab Emirates")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//android.widget.TextView[@text='UPDATE ROUTE']")).click();
+	Thread.sleep(30000);
+
+
+}
+}
+

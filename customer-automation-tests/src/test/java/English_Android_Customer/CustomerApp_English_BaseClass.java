@@ -44,7 +44,7 @@ public class CustomerApp_English_BaseClass {
 	    capabilities.setCapability("appium:uiautomator2ServerInstallTimeout", 60000);
 	    capabilities.setCapability("appium:uiautomator2ServerLaunchTimeout", 60000);
 	    
-	    driver = new AppiumDriver<>(new URL("http://192.168.1.35:4725/customPath"), capabilities);
+	    driver = new AppiumDriver<>(new URL("http://192.168.1.35:4723/"), capabilities);
 	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	    
 	    System.out.println("CUSTOMER APP LAUNCHED SUCCESSFULLY");

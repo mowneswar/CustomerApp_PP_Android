@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test name="Default test" verbose="2">
+<suite name="Failed suite [Regression]" guice-stage="DEVELOPMENT">
+  <test name="MoniicHourlyRegression" verbose="2">
     <classes>
-      <class name="English_Android_Customer.uhhdgjf"/>
+      <class name="English_Android_Customer.Hourly_RG_TestCases"/>
     </classes>
-  </test> <!-- Default test -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- MoniicHourlyRegression -->
+  <test name="MoniicHourlyRegression(failed)">
+    <classes>
+      <class name="English_Android_Customer.Hourly_RG_TestCases">
+        <methods>
+          <include name="Launch_Hourly_AD_Gpay"/>
+          <include name="Launch_Hourly_StartTripEarly_DM_FA_Card"/>
+          <include name="Launch_Hourly_DM_FA_Card"/>
+          <include name="Launch_Hourly_ScheduleLater_AbuDhabi_Gpay"/>
+          <include name="Launch_Hourly_ScheduleLater_AITwar_Cash"/>
+          <include name="Launch_Hourly_ScheduleLater_DM_DuLGL_Cash"/>
+          <include name="Launch_Hourly_DIA_T1_Cash"/>
+          <include name="Launch_Hourly_Others_SorryPage"/>
+          <include name="Launch_Hourly_StartTripEarlyCan_DM_Zab_Gpay"/>
+          <include name="Launch_Hourly_twarecentre_Cash"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- English_Android_Customer.Hourly_RG_TestCases -->
+    </classes>
+  </test> <!-- MoniicHourlyRegression(failed) -->
+</suite> <!-- Failed suite [Regression] -->
